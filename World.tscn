@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Combo.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Combo.gd" type="Script" id=2]
 
 [node name="World" type="Node" index="0"]
 
@@ -10,6 +10,9 @@
 [node name="Combo" type="Node" parent="Player" index="2"]
 
 script = ExtResource( 2 )
+Button0 = null
+Button1 = null
+seq = PoolIntArray( 0, 1, 0 )
 
 [node name="Timer" type="Timer" parent="Player/Combo" index="0"]
 
@@ -17,6 +20,22 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="TextureRect" type="TextureRect" parent="Player/Combo" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
