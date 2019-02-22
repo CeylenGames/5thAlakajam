@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/dos.png" type="Texture" id=2]
 [ext_resource path="res://images/perso.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Combo.gd" type="Script" id=4]
-[ext_resource path="res://images/0.png" type="Texture" id=5]
-[ext_resource path="res://images/1.png" type="Texture" id=6]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -27,7 +25,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -50,39 +48,6 @@ scale = Vector2( 2.31314, 2.09302 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Combo" type="Node" parent="." index="2"]
-
-script = ExtResource( 4 )
-Button0 = ExtResource( 5 )
-Button1 = ExtResource( 6 )
-combo = PoolIntArray( 0, 1, 0 )
-
-[node name="Timer" type="Timer" parent="Combo" index="0"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="TextureRect" type="TextureRect" parent="Combo" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = -130.0
-margin_right = 334.0
-margin_bottom = 224.0
-rect_scale = Vector2( 0.1, 0.1 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-stretch_mode = 0
-_sections_unfolded = [ "Hint", "Rect", "Visibility" ]
+[node name="Combo" parent="." index="2" instance=ExtResource( 4 )]
 
 
