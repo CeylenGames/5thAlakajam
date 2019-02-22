@@ -11,9 +11,13 @@ func _process(delta):
 func get_events(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += Speed
+		$AnimatedSprite.play("Face")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= Speed
+		$AnimatedSprite.play("Face")
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= Speed
+		$AnimatedSprite.play("Dos")
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += Speed
+		$AnimatedSprite.play("Face")

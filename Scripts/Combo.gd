@@ -18,15 +18,23 @@ func get_events():
 	if Input.is_action_just_pressed("combo_0"):
 		$Timer.stop()
 		if combo[index] == 0:
-			update_ui()
 			index += 1
+			if index == combo.size():
+				$TextureRect.visible = false
+				is_combo_finished = true
+			else:
+				update_ui()
 			# Anim bon code
 		# Sinon anim faux
 	elif Input.is_action_just_pressed("combo_1"):
 		$Timer.stop()
 		if combo[index] == 1:
 			index += 1
-			update_ui()
+			if index == combo.size():
+				$TextureRect.visible = false
+				is_combo_finished = true
+			else:
+				update_ui()
 			# Anim bon code
 		#Sinon faux
 	else:
