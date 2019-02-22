@@ -3,19 +3,22 @@ extends Node
 export (Texture) var Button0
 export (Texture) var Button1
 
-export (PoolIntArray) var combo
+var combo = PoolIntArray()
 var index = 0
 var is_combo_finished = false
+var is_ready = false
 
 export (Color) var Green
 export (Color) var Red
 export (Color) var White
 
-func _ready():
+func begin(size):
+	create_Bytes(size)
 	update_ui()
+	is_ready = true
 
 func _process(delta):
-	if not is_combo_finished:
+	if not is_combo_finished and is_ready:
 		get_events()
 
 func get_events():
@@ -59,3 +62,9 @@ func change_index():
 
 func normal_color():
 	$TextureRect.modulate = White
+
+func create_Bytes(size):
+	var i = 0
+	while i < size:
+		combo.append(int(rand_range(0, 1)))
+		i += 1
