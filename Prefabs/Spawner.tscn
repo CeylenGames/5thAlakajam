@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=3]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=4]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=5]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=6]
+
+[node name="Spawner" type="Node2D" index="0"]
+
+position = Vector2( 610, -310 )
+script = ExtResource( 1 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 2 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="spawn_enemy"]
+
+
