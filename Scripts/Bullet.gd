@@ -1,11 +1,12 @@
-extends KinematicBody2D
+extends Area2D
 
 var velocity = Vector2()
 var Speed = 250
 
 func _ready():
 	var angle = velocity.angle()
-	rotation += angle
+	rotation = angle + PI/2
 
 func _physics_process(delta):
-	move_and_slide(velocity * Speed * delta)
+	position.x += velocity.x * Speed * delta
+	position.y += velocity.y * Speed * delta

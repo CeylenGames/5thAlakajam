@@ -1,15 +1,13 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var in_wave = false
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+signal wave_ended
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	if get_child_count() != 0:
+		in_wave = true
+	else:
+		if in_wave:
+			emit_signal("wave_ended")
+			in_wave = false

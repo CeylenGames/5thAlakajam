@@ -8,6 +8,10 @@ export (PackedScene) var Combo_Indic
 export (Vector2) var Combo_Indic_Pos
 
 export (PackedScene) var Bullet
+export (Texture) var select_texture
+
+var bodies = Array()
+var selected
 
 func _ready():
 	randomize()
@@ -37,6 +41,9 @@ func get_events(delta):
 		velocity.y += Speed
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play("Face")
+	
+	if Input.is_action_just_pressed("select_enemy"):
+		choose_a_guy()
 		
 func BeginCombo():
 	var combo = Combo_Indic.instance()
@@ -46,5 +53,28 @@ func BeginCombo():
 	combo.begin(10)
 
 func end_combo():
-	var bullet = Bullet.instance()
-	bullet
+	if selected:
+		var bullet = Bullet.instance()
+		bullet.position = get_node("../Player").position
+		bullet.velocity = (selected.position - position).normalized()
+		get_node("../../World").add_child(bullet)
+
+func _detected(body):
+	if body.is_in_group("Enemy"):
+		bodies.append(body)
+
+func _undetected(body):
+	if body.is_in_group("Enemy"):
+		bodies.remove(bodies.find(body))
+	if body == selected:
+		body.get_node("Selector").queue_free()
+		selected = null
+
+func choose_a_guy():
+	if bodies.size() > 0:
+		var node = bodies[rand_range(0, bodies.size())]
+		var sprite = Sprite.new()
+		sprite.name = "Selector"
+		node.add_child(sprite)
+		sprite.texture = select_texture
+		selected = node

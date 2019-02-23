@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/side.png" type="Texture" id=2]
-[ext_resource path="res://images/dos.png" type="Texture" id=3]
-[ext_resource path="res://images/perso.png" type="Texture" id=4]
+[ext_resource path="res://images/perso.png" type="Texture" id=3]
+[ext_resource path="res://images/dos.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -15,12 +15,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Dos",
+"name": "Face",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Face",
+"name": "Dos",
 "speed": 1.0
 } ]
 
@@ -40,6 +40,8 @@ script = ExtResource( 1 )
 Speed = 300
 Combo_Indic = null
 Combo_Indic_Pos = null
+Bullet = null
+select_texture = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 

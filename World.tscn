@@ -1,23 +1,27 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
 [ext_resource path="res://tile set/obstacles.res" type="TileSet" id=3]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=8]
-[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=9]
-[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=10]
-[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=11]
-[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=13]
-[ext_resource path="res://images/ui/bar.png" type="Texture" id=14]
-[ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=15]
-[ext_resource path="res://images/bitcoin/bitcoin2.png" type="Texture" id=16]
-[ext_resource path="res://images/bitcoin/bitcoin3.png" type="Texture" id=17]
-[ext_resource path="res://images/bitcoin/bitcoin4.png" type="Texture" id=18]
+[ext_resource path="res://Prefabs/Bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/enemies/select.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/EnemyContainer.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=11]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=12]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=13]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=14]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=16]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=17]
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 800.0
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -30,7 +34,7 @@ outlines = [ PoolVector2Array( -3000, -1800, -3000, 1800, 3000, 1800, 3000, -180
 size = 20
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -38,7 +42,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -46,19 +50,10 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 45
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="SpriteFrames" id=5]
-
-animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 ScoreLabel = NodePath("GUI/Score")
@@ -110,17 +105,17 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 Combo_Indic = ExtResource( 5 )
 Combo_Indic_Pos = Vector2( -20, -130 )
-Bullet = null
+Bullet = ExtResource( 6 )
+select_texture = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 1.4, 1.4 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -128,8 +123,8 @@ limit_bottom = 10000000
 limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
+smoothing_enabled = true
+smoothing_speed = 3.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.2
@@ -140,9 +135,21 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="Navigation2D" type="Navigation2D" parent="." index="3"]
+[node name="Detector" type="Area2D" parent="Player" index="3"]
 
-editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector" index="0"]
+
+shape = SubResource( 5 )
+
+[node name="Navigation2D" type="Navigation2D" parent="." index="3"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
@@ -152,35 +159,38 @@ enabled = true
 
 [node name="Enemies" type="Node2D" parent="." index="4"]
 
-[node name="Spawner" parent="." index="5" instance=ExtResource( 6 )]
+script = ExtResource( 8 )
+
+[node name="Spawner" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 1370, -1590 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 7 )
+Enemy = ExtResource( 10 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
-[node name="Spawner2" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Spawner2" parent="." index="6" instance=ExtResource( 9 )]
 
 position = Vector2( -2210, 140 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 7 )
+Enemy = ExtResource( 10 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
-[node name="Spawner3" parent="." index="7" instance=ExtResource( 6 )]
+[node name="Spawner3" parent="." index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 680, 1270 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 7 )
+Enemy = ExtResource( 10 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="GUI" type="CanvasLayer" parent="." index="8"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -234,9 +244,9 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 13 )
+texture_under = ExtResource( 16 )
 texture_over = null
-texture_progress = ExtResource( 14 )
+texture_progress = ExtResource( 17 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -288,10 +298,10 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="9"]
+[connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 
-position = Vector2( 60, -20 )
-frames = SubResource( 5 )
-animation = "default"
+[connection signal="body_exited" from="Player/Detector" to="Player" method="_undetected"]
+
+[connection signal="wave_ended" from="Enemies" to="." method="_on_wave_ended"]
 
 

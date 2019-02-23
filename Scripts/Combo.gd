@@ -69,7 +69,7 @@ func update_ui():
 func change_index():
 	index += 1
 	if index == combo.size():
-	#	emit_signal(combo_ended)
+		emit_signal("combo_ended")
 		queue_free()
 	else:
 		$AnimationPlayer.play("Idle")
