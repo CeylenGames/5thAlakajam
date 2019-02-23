@@ -17,15 +17,16 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 3840, -1080, 3840, 2160, -1920, 2160, -1920, -1080 )
+vertices = PoolVector2Array( 3000, -1800, 3000, 1800, -3000, 1800, -3000, -1800 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( -1920, -1080, -1920, 2160, 3840, 2160, 3840, -1080 ) ]
+outlines = [ PoolVector2Array( -3000, -1800, -3000, 1800, 3000, 1800, 3000, -1800 ) ]
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 20
 use_mipmaps = false
 use_filter = false
+font_data = ExtResource( 12 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -143,7 +144,7 @@ position = Vector2( -660, -400 )
 
 [node name="Spawner" type="Node2D" parent="." index="5"]
 
-position = Vector2( 610, -310 )
+position = Vector2( 710, 750 )
 script = ExtResource( 6 )
 nav = NodePath("../Navigation2D")
 Enemy = ExtResource( 7 )
@@ -151,16 +152,9 @@ Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
 sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
-[node name="Timer" type="Timer" parent="Spawner" index="0"]
+[node name="Spawner2" type="Node2D" parent="." index="6"]
 
-process_mode = 1
-wait_time = 8.0
-one_shot = false
-autostart = false
-
-[node name="Spawner3" type="Node2D" parent="." index="6"]
-
-position = Vector2( -760, -560 )
+position = Vector2( 1480, 60 )
 script = ExtResource( 6 )
 nav = NodePath("../Navigation2D")
 Enemy = ExtResource( 7 )
@@ -168,14 +162,15 @@ Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
 sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
-[node name="Timer" type="Timer" parent="Spawner3" index="0"]
+[node name="Spawner3" type="Node2D" parent="." index="7"]
 
-process_mode = 1
-wait_time = 8.0
-one_shot = false
-autostart = false
-
-[node name="Enemies" type="Node2D" parent="." index="7"]
+position = Vector2( -250, 190 )
+script = ExtResource( 6 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 7 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="GUI" type="CanvasLayer" parent="." index="8"]
 
@@ -200,7 +195,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "PC Charge :"
+text = "PC Charge : "
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -297,5 +292,3 @@ Enemy = ExtResource( 7 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
 sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
-
-
