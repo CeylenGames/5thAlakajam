@@ -1,13 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://images/maptete.png" type="Texture" id=4]
-[ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=5]
-[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=7]
-[ext_resource path="res://images/ui/bar.png" type="Texture" id=8]
+[ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
+[ext_resource path="res://tile set/obstacles.res" type="TileSet" id=3]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=8]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=9]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=10]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=11]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=13]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -33,7 +39,7 @@ font_path = "res://font/Raleway-Black.ttf"
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = SubResource( 4 )
+font_data = ExtResource( 12 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -52,11 +58,53 @@ WaveLabel = NodePath("GUI/Wave")
 spawners = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
 EnemyContainer = NodePath("Enemies")
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 300, 300 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -1048606, 8, 0, -327690, 8, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, -1610612733, 0, -393216, 1610612740, 0, -393215, 8, 0, -393214, 0, 0, -393213, 0, 0, -393212, 8, 0, -393211, 8, 0, -393210, 8, 0, -393209, 1610612743, 0, -393208, 0, 0, -393207, 0, 0, -262154, 8, 0, -262153, 0, 0, -262152, 1610612739, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 8, 0, -327679, 8, 0, -327678, 0, 0, -327677, 0, 0, -327676, 8, 0, -327675, -1610612733, 0, -327674, 8, 0, -327673, 8, 0, -327672, 0, 0, -327671, 0, 0, -196618, 8, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, -1073741822, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 8, 0, -262143, -1610612729, 0, -262142, 0, 0, -262141, -1610612734, 0, -262140, 8, 0, -262139, 8, 0, -262138, 8, 0, -262137, 8, 0, -262136, 0, 0, -262135, 0, 0, -131082, -1610612729, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 8, 0, -196607, 1610612741, 0, -196606, 8, 0, -196605, 8, 0, -196604, 1610612743, 0, -196603, -1073741821, 0, -196602, 8, 0, -196601, -1610612731, 0, -196600, 3, 0, -196599, 0, 0, -65546, -1610612729, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, -1610612735, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, -1610612731, 0, -131071, 8, 0, -131070, -1073741819, 0, -131069, 1610612743, 0, -131068, 8, 0, -131067, 8, 0, -131066, 8, 0, -131065, 8, 0, -131064, 0, 0, -131063, 0, 0, -10, 5, 0, -9, 3, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 8, 0, -65535, 5, 0, -65534, 8, 0, -65533, 8, 0, -65532, 8, 0, -65531, 3, 0, -65530, 8, 0, -65529, 8, 0, -65528, 0, 0, -65527, 0, 0, 65526, 0, 0, 65527, 8, 0, 65528, 4, 0, 65529, 4, 0, 65530, 1610612743, 0, 65531, 4, 0, 65532, 8, 0, 65533, 8, 0, 65534, 1610612741, 0, 65535, 8, 0, 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, -1610612732, 0, 8, 8, 0, 9, 5, 0, 131062, 0, 0, 131063, 8, 0, 131064, 0, 0, 131065, 8, 0, 131066, 8, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 1610612741, 0, 65541, 8, 0, 65542, 8, 0, 65543, -1610612732, 0, 65544, 8, 0, 65545, 8, 0, 196598, 0, 0, 196599, 1610612743, 0, 196600, 0, 0, 196601, -1073741819, 0, 196602, 8, 0, 196603, 0, 0, 196604, 1, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, -1073741822, 0, 262134, 0, 0, 262135, 8, 0, 262136, 8, 0, 262137, 8, 0, 262138, 8, 0, 262139, -1073741817, 0, 262140, 8, 0, 262141, 8, 0, 262142, 5, 0, 262143, 8, 0, 196608, 8, 0, 196609, -1610612730, 0, 196610, 1610612742, 0, 196611, 8, 0, 196612, 0, 0, 196613, 1, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327670, -1073741821, 0, 327671, -1073741817, 0, 327672, 1610612738, 0, 327673, 0, 0, 327674, 0, 0, 327675, 8, 0, 327676, 0, 0, 327677, 0, 0, 327678, -1610612734, 0, 327679, 8, 0, 262144, 8, 0, 262145, 6, 0, 262146, -1073741818, 0, 262147, 8, 0, 262148, 0, 0, 262149, -1073741823, 0, 262150, 0, 0, 262151, 3, 0, 262152, 0, 0, 262153, 0, 0, 393206, 0, 0, 393207, -1073741817, 0, 393208, 1610612741, 0, 393209, 8, 0, 393210, 8, 0, 393211, -1610612731, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 1610612743, 0, 327680, 1610612743, 0, 327681, 8, 0, 327682, 8, 0, 327683, -1610612731, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="TileMap2" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 300, 300 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -327690, 1610612738, 0, -327681, 1, 0, -393214, -1073741823, 0, -393207, -1073741822, 0, -262151, -1610612733, 0, -262150, -1073741820, 0, -327675, 1610612739, 0, -196615, -1610612732, 0, -196614, -1610612733, 0, -262141, -1610612735, 0, -131078, 1, 0, -196603, -1073741821, 0, -65537, -1073741824, 0, -2, 0, 0, -1, 2, 0, -65531, 3, 0, 65526, -1073741823, 0, 131065, 1610612736, 0, 131066, 1073741824, 0, 65536, -1073741820, 0, 131072, 4, 0, 131077, 1610612736, 0, 131081, 2, 0, 196613, 3, 0, 327672, 3, 0, 327674, 3, 0, 327676, 4, 0, 327678, -1073741820, 0, 262149, 0, 0, 393206, -1610612734, 0, 327684, 2, 0, 327689, 1610612737, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 Speed = 200
-Combo_Indic = ExtResource( 3 )
+Combo_Indic = ExtResource( 5 )
 Combo_Indic_Pos = Vector2( -20, -130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
@@ -84,142 +132,64 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
-
-editor/display_folded = true
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
-
-editor/display_folded = true
-motion_scale = Vector2( 1, 1 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
-
-position = Vector2( 1920, 1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
-
-position = Vector2( -1920, 1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="3"]
-
-position = Vector2( 0, 1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="4"]
-
-position = Vector2( -1920, -1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="5"]
-
-position = Vector2( -1920, 0 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="6"]
-
-position = Vector2( 1920, -1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="7"]
-
-position = Vector2( 1920, 0 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="8"]
-
-position = Vector2( 0, -1080 )
-texture = ExtResource( 4 )
-centered = false
-_sections_unfolded = [ "Offset" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Navigation2D" type="Navigation2D" parent="." index="2"]
+[node name="Navigation2D" type="Navigation2D" parent="." index="3"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
 navpoly = SubResource( 1 )
 enabled = true
 
-[node name="Spawner" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Spawner" type="Node2D" parent="." index="4"]
 
-position = Vector2( 630, 360 )
+position = Vector2( 610, -310 )
+script = ExtResource( 6 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 7 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner" index="0"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = false
+
+[node name="Spawner2" type="Node2D" parent="." index="5"]
+
+position = Vector2( 710, 750 )
+script = ExtResource( 6 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 7 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="Spawner2" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( -660, -400 )
 
-[node name="Spawner3" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Spawner3" type="Node2D" parent="." index="6"]
 
-position = Vector2( 250, -220 )
+position = Vector2( -760, -560 )
+script = ExtResource( 6 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 7 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
-[node name="Enemies" type="Node2D" parent="." index="6"]
+[node name="Timer" type="Timer" parent="Spawner3" index="0"]
 
-[node name="GUI" type="CanvasLayer" parent="." index="7"]
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = false
+
+[node name="Enemies" type="Node2D" parent="." index="7"]
+
+[node name="GUI" type="CanvasLayer" parent="." index="8"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -273,9 +243,9 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 7 )
+texture_under = ExtResource( 13 )
 texture_over = null
-texture_progress = ExtResource( 8 )
+texture_progress = ExtResource( 14 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -329,5 +299,3 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
-
-
