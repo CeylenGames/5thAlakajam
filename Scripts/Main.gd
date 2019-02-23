@@ -18,10 +18,12 @@ func update_ui():
 	get_node(ScoreLabel).set_text("Score : " + str(Score))
 	get_node(WaveLabel).set_text("Wave : " + str(WaveNumber))
 
+"""
 func _process(delta):
 	if get_node(EnemyContainer).get_child_count() == 0:
 		WaveNumber += 1
 		reset()
+"""
 
 func reset():
 	for spawner in spawners:

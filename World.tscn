@@ -100,6 +100,7 @@ _sections_unfolded = [ "Cell" ]
 editor/display_folded = true
 Combo_Indic = ExtResource( 5 )
 Combo_Indic_Pos = Vector2( -20, -130 )
+Bullet = null
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
