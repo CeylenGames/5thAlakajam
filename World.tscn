@@ -4,7 +4,7 @@
 [ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/maptete.png" type="Texture" id=3]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 

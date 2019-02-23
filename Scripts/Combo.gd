@@ -8,10 +8,6 @@ var index = 0
 var is_combo_finished = false
 var is_ready = false
 
-export (Color) var Green
-export (Color) var Red
-export (Color) var White
-
 func begin(size):
 	create_Bytes(size)
 	update_ui()
@@ -25,20 +21,24 @@ func get_events():
 	if Input.is_action_just_pressed("combo_0"):
 		$Exit_Timer.stop()
 		if combo[index] == 0:
-			$TextureRect.modulate = Green
-			$Accept_Timer.start()
+			$AnimationPlayer.play("Accept")
+			yield($AnimationPlayer, "animation_finished")
+			change_index()
 		else:
-			$TextureRect.modulate = Red
-			$Reject_Timer.start()
+			$AnimationPlayer.play("Reject")
+			yield($AnimationPlayer, "animation_finished")
+			$AnimationPlayer.play("Idle")
 			
 	elif Input.is_action_just_pressed("combo_1"):
 		$Exit_Timer.stop()
 		if combo[index] == 1:
-			$TextureRect.modulate = Green
-			$Accept_Timer.start()
+			$AnimationPlayer.play("Accept")
+			yield($AnimationPlayer, "animation_finished")
+			change_index()
 		else:
-			$TextureRect.modulate = Red
-			$Reject_Timer.start()
+			$AnimationPlayer.play("Reject")
+			yield($AnimationPlayer, "animation_finished")
+			$AnimationPlayer.play("Idle")
 	else:
 		$Exit_Timer.start()
 
@@ -57,11 +57,8 @@ func change_index():
 		$TextureRect.visible = false
 		is_combo_finished = true
 	else:
-		normal_color()
+		$AnimationPlayer.play("Idle")
 		update_ui()
-
-func normal_color():
-	$TextureRect.modulate = White
 
 func create_Bytes(size):
 	var i = 0

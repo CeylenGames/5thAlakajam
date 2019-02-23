@@ -1,18 +1,84 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://images/0.png" type="Texture" id=2]
 [ext_resource path="res://images/1.png" type="Texture" id=3]
 
-[node name="Combo" type="Node2D"]
+[sub_resource type="Animation" id=1]
+
+resource_name = "Accept"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.03125, 1, 0, 1 ), Color( 0.03125, 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "Idle"
+length = 0.24
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.24 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Reject"
+length = 0.24
+loop = false
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.24 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.949219, 0.222473, 0.222473, 1 ), Color( 0.94902, 0.219608, 0.219608, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Combo" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 Button0 = ExtResource( 2 )
 Button1 = ExtResource( 3 )
-Green = Color( 0.171875, 1, 0, 1 )
-Red = Color( 1, 0, 0, 1 )
-White = Color( 1, 1, 1, 1 )
 
 [node name="Exit_Timer" type="Timer" parent="." index="0"]
 
@@ -21,23 +87,8 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="Accept_Timer" type="Timer" parent="." index="1"]
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
 
-process_mode = 1
-wait_time = 0.2
-one_shot = true
-autostart = false
-
-[node name="Reject_Timer" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 0.2
-one_shot = true
-autostart = false
-
-[node name="TextureRect" type="TextureRect" parent="." index="3"]
-
-modulate = Color( 0.996094, 0.996094, 0.996094, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -55,8 +106,17 @@ texture = ExtResource( 2 )
 stretch_mode = 0
 _sections_unfolded = [ "Hint", "Rect", "Visibility" ]
 
-[connection signal="timeout" from="Accept_Timer" to="." method="change_index"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
-[connection signal="timeout" from="Reject_Timer" to="." method="normal_color"]
+root_node = NodePath("../TextureRect")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Accept = SubResource( 1 )
+anims/Idle = SubResource( 4 )
+anims/Reject = SubResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 
