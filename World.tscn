@@ -168,7 +168,6 @@ enabled = true
 
 [node name="Spawner" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 610, -310 )
 script = ExtResource( 4 )
 nav = NodePath("../Navigation2D")
@@ -186,3 +185,5 @@ autostart = true
 [node name="Enemies" type="Node2D" parent="." index="4"]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_enemy"]
+
+

@@ -37,3 +37,6 @@ func move(delta):
 
 func get_path():
 	return nav_node.get_simple_path(position, player.position)
+	
+func set_sprite(texture):
+	$Sprite.texture = texture

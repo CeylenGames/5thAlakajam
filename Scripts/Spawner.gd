@@ -5,6 +5,7 @@ export (PackedScene) var Enemy
 export (NodePath) var Player
 export (NodePath) var EnemyContainer
 
+
 func spawn_enemy():
 	var enemy = Enemy.instance()
 	enemy.position = position
