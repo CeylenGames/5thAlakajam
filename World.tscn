@@ -187,7 +187,7 @@ exp_edit = false
 rounded = false
 texture_under = ExtResource( 6 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 13 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -241,5 +241,3 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
-
-
