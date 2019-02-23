@@ -131,51 +131,7 @@ editor_draw_drag_margin = false
 navpoly = SubResource( 1 )
 enabled = true
 
-<<<<<<< HEAD
 [node name="GUI" type="CanvasLayer" parent="." index="4"]
-=======
-[node name="Spawner2" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( -660, -400 )
-
-[node name="Spawner" type="Node2D" parent="." index="5"]
-
-position = Vector2( 610, -310 )
-script = ExtResource( 6 )
-nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 7 )
-Player = NodePath("../Player")
-EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
-
-[node name="Timer" type="Timer" parent="Spawner" index="0"]
-
-process_mode = 1
-wait_time = 8.0
-one_shot = false
-autostart = false
-
-[node name="Spawner3" type="Node2D" parent="." index="6"]
-
-position = Vector2( -760, -560 )
-script = ExtResource( 6 )
-nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 7 )
-Player = NodePath("../Player")
-EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
-
-[node name="Timer" type="Timer" parent="Spawner3" index="0"]
-
-process_mode = 1
-wait_time = 8.0
-one_shot = false
-autostart = false
-
-[node name="Enemies" type="Node2D" parent="." index="7"]
-
-[node name="GUI" type="CanvasLayer" parent="." index="8"]
->>>>>>> parent of 8bd5d95... Merge branch 'master' of https://github.com/CeylenGames/5thAlakajam
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -285,8 +241,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
-<<<<<<< HEAD
-=======
 
 [node name="Spawner2" type="Node2D" parent="." index="9"]
 
@@ -297,6 +251,3 @@ Enemy = ExtResource( 7 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
 sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
-
-
->>>>>>> parent of 8bd5d95... Merge branch 'master' of https://github.com/CeylenGames/5thAlakajam
