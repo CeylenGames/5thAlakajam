@@ -186,3 +186,5 @@ autostart = true
 [node name="Enemies" type="Node2D" parent="." index="4"]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_enemy"]
+
+
