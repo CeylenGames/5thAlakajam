@@ -66,5 +66,5 @@ func normal_color():
 func create_Bytes(size):
 	var i = 0
 	while i < size:
-		combo.append(int(rand_range(0, 1)))
+		combo.append(int(rand_range(0, 2)))
 		i += 1

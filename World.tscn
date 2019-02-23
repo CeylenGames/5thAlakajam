@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/maptete.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/maptete.png" type="Texture" id=3]
 
 [node name="World" type="Node" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-Combo_Indic = null
-Combo_Indic_Pos = null
+Combo_Indic = ExtResource( 2 )
+Combo_Indic_Pos = Vector2( -20, -130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
@@ -60,7 +61,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -70,7 +71,7 @@ __meta__ = {
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
 position = Vector2( 1920, 1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -80,7 +81,7 @@ __meta__ = {
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
 
 position = Vector2( -1920, 1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -90,7 +91,7 @@ __meta__ = {
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="3"]
 
 position = Vector2( 0, 1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -100,7 +101,7 @@ __meta__ = {
 [node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="4"]
 
 position = Vector2( -1920, -1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -110,7 +111,7 @@ __meta__ = {
 [node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="5"]
 
 position = Vector2( -1920, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -120,7 +121,7 @@ __meta__ = {
 [node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="6"]
 
 position = Vector2( 1920, -1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -130,7 +131,7 @@ __meta__ = {
 [node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="7"]
 
 position = Vector2( 1920, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -140,7 +141,7 @@ __meta__ = {
 [node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="8"]
 
 position = Vector2( 0, -1080 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {

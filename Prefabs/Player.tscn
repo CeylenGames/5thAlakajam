@@ -1,13 +1,18 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/Combo_Indic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/side.png" type="Texture" id=2]
 [ext_resource path="res://images/dos.png" type="Texture" id=3]
 [ext_resource path="res://images/perso.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Side",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Dos",
@@ -25,7 +30,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -33,8 +38,8 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 Speed = 100
-Combo_Indic = ExtResource( 2 )
-Combo_Indic_Pos = Vector2( -20, -130 )
+Combo_Indic = null
+Combo_Indic_Pos = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 

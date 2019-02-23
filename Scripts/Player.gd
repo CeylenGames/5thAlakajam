@@ -21,19 +21,22 @@ func _process(delta):
 func get_events(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += Speed
-		$AnimatedSprite.play("Face")
+		$AnimatedSprite.flip_h = false
+		$AnimatedSprite.play("Side")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= Speed
-		$AnimatedSprite.play("Face")
+		$AnimatedSprite.play("Side")
+		$AnimatedSprite.flip_h = true
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= Speed
+		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play("Dos")
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += Speed
+		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play("Face")
 		
 func BeginCombo():
-	print(Combo_Indic)
 	var combo = Combo_Indic.instance()
 	add_child(combo)
 	combo.position = Combo_Indic_Pos
