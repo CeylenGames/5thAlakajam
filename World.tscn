@@ -187,6 +187,7 @@ exp_edit = false
 rounded = false
 texture_under = ExtResource( 6 )
 texture_over = null
+texture_progress = ExtResource( 14 )
 texture_progress = ExtResource( 13 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
