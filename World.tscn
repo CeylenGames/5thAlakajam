@@ -11,9 +11,9 @@
 [ext_resource path="res://images/enemies/spam2.png" type="Texture" id=9]
 [ext_resource path="res://images/enemies/spam3.png" type="Texture" id=10]
 [ext_resource path="res://images/enemies/spam4.png" type="Texture" id=11]
-[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=13]
-[ext_resource path="res://images/ui/bar.png" type="Texture" id=14]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=12]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=13]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -34,7 +34,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 14 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFontData" id=4]
@@ -102,7 +102,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 Speed = 200
 Combo_Indic = ExtResource( 5 )
 Combo_Indic_Pos = Vector2( -20, -130 )
@@ -112,7 +111,7 @@ Combo_Indic_Pos = Vector2( -20, -130 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 0.8, 0.8 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -139,9 +138,11 @@ editor_draw_drag_margin = false
 navpoly = SubResource( 1 )
 enabled = true
 
-[node name="Enemies" type="Node2D" parent="." index="4"]
+[node name="Spawner2" parent="." index="4" instance=ExtResource( 5 )]
 
-[node name="Spawner1" type="Node2D" parent="." index="5"]
+position = Vector2( -660, -400 )
+
+[node name="Spawner" type="Node2D" parent="." index="5"]
 
 position = Vector2( 710, 750 )
 script = ExtResource( 6 )
@@ -225,9 +226,10 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 13 )
+texture_under = ExtResource( 12 )
 texture_over = null
 texture_progress = ExtResource( 14 )
+texture_progress = ExtResource( 13 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -282,4 +284,12 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
+[node name="Spawner2" type="Node2D" parent="." index="9"]
 
+position = Vector2( 710, 750 )
+script = ExtResource( 6 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 7 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
