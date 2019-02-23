@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://images/0.png" type="Texture" id=2]
@@ -21,6 +21,25 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.03125, 1, 0, 1 ), Color( 0.03125, 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "End"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -58,7 +77,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.24 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.949219, 0.222473, 0.222473, 1 ), Color( 0.94902, 0.219608, 0.219608, 1 ) ]
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rect_position")
@@ -83,7 +102,7 @@ Button1 = ExtResource( 3 )
 [node name="Exit_Timer" type="Timer" parent="." index="0"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 2.0
 one_shot = true
 autostart = false
 
@@ -114,9 +133,12 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Accept = SubResource( 1 )
+anims/End = SubResource( 5 )
 anims/Idle = SubResource( 4 )
 anims/Reject = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[connection signal="timeout" from="Exit_Timer" to="." method="combo_exit"]
 
 

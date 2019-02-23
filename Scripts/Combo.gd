@@ -5,8 +5,8 @@ export (Texture) var Button1
 
 var combo = PoolIntArray()
 var index = 0
-var is_combo_finished = false
 var is_ready = false
+var afk = false
 
 func begin(size):
 	create_Bytes(size)
@@ -14,7 +14,7 @@ func begin(size):
 	is_ready = true
 
 func _process(delta):
-	if not is_combo_finished and is_ready:
+	if is_ready:
 		get_events()
 
 func get_events():
@@ -40,10 +40,14 @@ func get_events():
 			yield($AnimationPlayer, "animation_finished")
 			$AnimationPlayer.play("Idle")
 	else:
-		$Exit_Timer.start()
+		if not afk:
+			afk = true
+			$Exit_Timer.start()
 
 func combo_exit():
-	index = 0
+	$AnimationPlayer.play("End")
+	yield($AnimationPlayer, "animation_finished")
+	queue_free()
 
 func update_ui():
 	if combo[index] == 0:
@@ -54,8 +58,7 @@ func update_ui():
 func change_index():
 	index += 1
 	if index == combo.size():
-		$TextureRect.visible = false
-		is_combo_finished = true
+		queue_free()
 	else:
 		$AnimationPlayer.play("Idle")
 		update_ui()
