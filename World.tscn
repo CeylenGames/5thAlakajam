@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=2]
-[ext_resource path="res://images/maptete.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=4]
-[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=6]
-[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=7]
-[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=8]
-[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=9]
-[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=10]
-[ext_resource path="res://images/ui/bar.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/maptete.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=7]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=8]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=9]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=10]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=12]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -18,13 +20,32 @@ vertices = PoolVector2Array( 3840, -1080, 3840, 2160, -1920, 2160, -1920, -1080 
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -1920, -1080, -1920, 2160, 3840, 2160, 3840, -1080 ) ]
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 65
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
 [node name="World" type="Node" index="0"]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+spawners = null
+
+[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
 editor/display_folded = true
 Speed = 200
-Combo_Indic = ExtResource( 2 )
+Combo_Indic = ExtResource( 3 )
 Combo_Indic_Pos = Vector2( -20, -130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
@@ -79,7 +100,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -89,7 +110,7 @@ __meta__ = {
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
 position = Vector2( 1920, 1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -99,7 +120,7 @@ __meta__ = {
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
 
 position = Vector2( -1920, 1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -109,7 +130,7 @@ __meta__ = {
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="3"]
 
 position = Vector2( 0, 1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -119,7 +140,7 @@ __meta__ = {
 [node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="4"]
 
 position = Vector2( -1920, -1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -129,7 +150,7 @@ __meta__ = {
 [node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="5"]
 
 position = Vector2( -1920, 0 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -139,7 +160,7 @@ __meta__ = {
 [node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="6"]
 
 position = Vector2( 1920, -1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -149,7 +170,7 @@ __meta__ = {
 [node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="7"]
 
 position = Vector2( 1920, 0 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -159,7 +180,7 @@ __meta__ = {
 [node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="8"]
 
 position = Vector2( 0, -1080 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 _sections_unfolded = [ "Offset" ]
 __meta__ = {
@@ -175,85 +196,97 @@ enabled = true
 
 [node name="Spawner" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 610, -310 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 5 )
+Enemy = ExtResource( 6 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Timer" type="Timer" parent="Spawner" index="0"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 8.0
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Spawner2" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( 710, 750 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 5 )
+Enemy = ExtResource( 6 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Timer" type="Timer" parent="Spawner2" index="0"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 8.0
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Spawner3" type="Node2D" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( -760, -560 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 5 )
+Enemy = ExtResource( 6 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Timer" type="Timer" parent="Spawner3" index="0"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 8.0
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="Enemies" type="Node2D" parent="." index="6"]
 
-[node name="ViewportContainer" type="ViewportContainer" parent="." index="7"]
+[node name="GUI" type="CanvasLayer" parent="." index="7"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-stretch = false
-stretch_shrink = 1
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="TextureProgress" type="TextureProgress" parent="ViewportContainer" index="0"]
+[node name="Charge" type="Label" parent="GUI" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -520.0
-margin_top = -350.0
-margin_right = -420.0
-margin_bottom = -330.0
+margin_right = 120.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "PC Charge :"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="TextureProgress" type="TextureProgress" parent="GUI/Charge" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 130.0
+margin_right = 230.0
+margin_bottom = 20.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -268,36 +301,37 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 10 )
+texture_under = ExtResource( 12 )
 texture_over = null
-texture_progress = ExtResource( 11 )
+texture_progress = ExtResource( 13 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Label" type="Label" parent="ViewportContainer" index="1"]
+[node name="Score" type="Label" parent="GUI" index="1"]
 
-anchor_left = 0.0
+anchor_left = 0.5
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -630.0
-margin_top = -340.0
-margin_right = -567.0
-margin_bottom = -326.0
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -175.0
+margin_right = 175.0
+margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "PC Charge"
+custom_fonts/font = SubResource( 2 )
+text = "Score :"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_enemy"]
 
