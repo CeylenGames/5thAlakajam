@@ -10,3 +10,9 @@ func _ready():
 func _physics_process(delta):
 	position.x += velocity.x * Speed * delta
 	position.y += velocity.y * Speed * delta
+
+
+func _on_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.leave_coin()
+		queue_free()

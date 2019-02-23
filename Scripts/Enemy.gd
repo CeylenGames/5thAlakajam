@@ -43,10 +43,8 @@ func get_path():
 func set_sprite(texture):
 	$Sprite.texture = texture
 
-func _on_body_entered(body):
-	if body.is_in_group("Bullet"):
-		body.queue_free()
-		var coin = Coin.instance()
-		coin.position = position
-		body.parent.add_child(coin)
-		queue_free()
+func leave_coin():
+	var coin = Coin.instance()
+	coin.position = position
+	get_node("../../../World").add_child(coin)
+	queue_free()

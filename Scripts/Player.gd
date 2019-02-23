@@ -13,6 +13,8 @@ export (Texture) var select_texture
 var bodies = Array()
 var selected
 
+var coins = 0
+
 func _ready():
 	randomize()
 
@@ -62,6 +64,9 @@ func end_combo():
 func _detected(body):
 	if body.is_in_group("Enemy"):
 		bodies.append(body)
+	elif body.is_in_group("Coin"):
+		coins += 1
+		body.queue_free()
 
 func _undetected(body):
 	if body.is_in_group("Enemy"):
