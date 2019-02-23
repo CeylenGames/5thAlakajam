@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://images/maptete.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=4]
 [ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=6]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=7]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=8]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=9]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=10]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -48,6 +54,7 @@ editor_draw_drag_margin = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -168,22 +175,134 @@ enabled = true
 
 [node name="Spawner" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 610, -310 )
 script = ExtResource( 4 )
 nav = NodePath("../Navigation2D")
 Enemy = ExtResource( 5 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
 
 [node name="Timer" type="Timer" parent="Spawner" index="0"]
 
 process_mode = 1
-wait_time = 1.0
-one_shot = true
+wait_time = 5.0
+one_shot = false
 autostart = true
 
-[node name="Enemies" type="Node2D" parent="." index="4"]
+[node name="Spawner2" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 710, 750 )
+script = ExtResource( 4 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 5 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner2" index="0"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="Spawner3" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( -760, -560 )
+script = ExtResource( 4 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 5 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner3" index="0"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="." index="6"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch = false
+stretch_shrink = 1
+
+[node name="TextureProgress" type="TextureProgress" parent="ViewportContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -520.0
+margin_top = -350.0
+margin_right = -420.0
+margin_bottom = -330.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 10 )
+texture_over = null
+texture_progress = ExtResource( 11 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="ViewportContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -630.0
+margin_top = -340.0
+margin_right = -567.0
+margin_bottom = -326.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "PC Charge"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_enemy"]
+
+[connection signal="timeout" from="Spawner2/Timer" to="Spawner2" method="spawn_enemy"]
+
+[connection signal="timeout" from="Spawner3/Timer" to="Spawner3" method="spawn_enemy"]
 
 
