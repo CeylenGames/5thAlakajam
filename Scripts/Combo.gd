@@ -7,6 +7,7 @@ var combo = PoolIntArray()
 var index = 0
 var is_ready = false
 var afk = false
+var animating = false
 
 func begin(size):
 	create_Bytes(size)
@@ -14,7 +15,7 @@ func begin(size):
 	is_ready = true
 
 func _process(delta):
-	if is_ready:
+	if is_ready and not animating:
 		get_events()
 
 func get_events():
@@ -22,23 +23,31 @@ func get_events():
 		$Exit_Timer.stop()
 		if combo[index] == 0:
 			$AnimationPlayer.play("Accept")
+			animating = true
 			yield($AnimationPlayer, "animation_finished")
 			change_index()
+			animating = false
 		else:
 			$AnimationPlayer.play("Reject")
+			animating = true
 			yield($AnimationPlayer, "animation_finished")
 			$AnimationPlayer.play("Idle")
+			animating = false
 			
 	elif Input.is_action_just_pressed("combo_1"):
 		$Exit_Timer.stop()
 		if combo[index] == 1:
 			$AnimationPlayer.play("Accept")
+			animating = true
 			yield($AnimationPlayer, "animation_finished")
 			change_index()
+			animating = false
 		else:
 			$AnimationPlayer.play("Reject")
+			animating = true
 			yield($AnimationPlayer, "animation_finished")
 			$AnimationPlayer.play("Idle")
+			animating = false
 	else:
 		if not afk:
 			afk = true
