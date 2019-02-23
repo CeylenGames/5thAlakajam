@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Movement
-export (float) var Speed = 100
+export (float) var Speed = 200
 var velocity = Vector2()
 
 export (PackedScene) var Combo_Indic
