@@ -9,6 +9,8 @@ var is_ready = false
 var afk = false
 var animating = false
 
+signal combo_ended
+
 func begin(size):
 	create_Bytes(size)
 	update_ui()
@@ -67,6 +69,7 @@ func update_ui():
 func change_index():
 	index += 1
 	if index == combo.size():
+		emit_signal(combo_ended)
 		queue_free()
 	else:
 		$AnimationPlayer.play("Idle")

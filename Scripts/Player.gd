@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
 # Movement
-export (float) var Speed = 200
+export (float) var Speed = 300
 var velocity = Vector2()
 
 export (PackedScene) var Combo_Indic
 export (Vector2) var Combo_Indic_Pos
+
+export (PackedScene) var Bullet
 
 func _ready():
 	randomize()
@@ -40,4 +42,9 @@ func BeginCombo():
 	var combo = Combo_Indic.instance()
 	add_child(combo)
 	combo.position = Combo_Indic_Pos
+	combo.connect("combo_ended", self, "end_combo")
 	combo.begin(10)
+
+func end_combo():
+	var bullet = Bullet.instance()
+	bullet

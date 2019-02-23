@@ -11,6 +11,7 @@ var counter = 0
 var max_counter = 1
 
 func spawn_enemy():
+	print("spawn")
 	var enemy = Enemy.instance()
 	enemy.position = position
 	get_node(EnemyContainer).add_child(enemy)

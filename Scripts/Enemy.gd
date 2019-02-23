@@ -9,7 +9,7 @@ var path
 
 var index = 0
 var vector = Vector2()
-var Speed = 50
+var Speed = 200
 
 func _physics_process(delta):
 	if is_ready:

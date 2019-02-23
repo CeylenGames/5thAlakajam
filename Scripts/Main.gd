@@ -22,7 +22,7 @@ func _process(delta):
 	if get_node(EnemyContainer).get_child_count() == 0:
 		WaveNumber += 1
 		reset()
-	
+
 func reset():
 	for spawner in spawners:
 		get_node(spawner).reset(WaveNumber)
