@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+<<<<<<< HEAD
 [ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
 [ext_resource path="res://tile set/obstacles.res" type="TileSet" id=3]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=4]
@@ -8,6 +9,20 @@
 [ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=6]
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=7]
 [ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=8]
+=======
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/maptete.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=7]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=8]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=9]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=10]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=12]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=13]
+>>>>>>> parent of e8b45f4... spawners + wave
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -15,18 +30,26 @@ vertices = PoolVector2Array( 3840, -1080, 3840, 2160, -1920, 2160, -1920, -1080 
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -1920, -1080, -1920, 2160, 3840, 2160, 3840, -1080 ) ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 20
 use_mipmaps = false
 use_filter = false
+<<<<<<< HEAD
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
+=======
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+>>>>>>> parent of e8b45f4... spawners + wave
 
 size = 65
 use_mipmaps = false
 use_filter = false
+<<<<<<< HEAD
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
@@ -43,13 +66,15 @@ use_filter = false
 font_data = SubResource( 4 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
+=======
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+>>>>>>> parent of e8b45f4... spawners + wave
 [node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
-ScoreLabel = NodePath("GUI/Score")
-WaveLabel = NodePath("GUI/Wave")
-spawners = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
-EnemyContainer = NodePath("Enemies")
+spawners = null
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -131,7 +156,64 @@ editor_draw_drag_margin = false
 navpoly = SubResource( 1 )
 enabled = true
 
+<<<<<<< HEAD
 [node name="GUI" type="CanvasLayer" parent="." index="4"]
+=======
+[node name="Spawner" type="Node2D" parent="." index="3"]
+
+position = Vector2( 610, -310 )
+script = ExtResource( 5 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 6 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner" index="0"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = false
+
+[node name="Spawner2" type="Node2D" parent="." index="4"]
+
+position = Vector2( 710, 750 )
+script = ExtResource( 5 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 6 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner2" index="0"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = false
+
+[node name="Spawner3" type="Node2D" parent="." index="5"]
+
+position = Vector2( -760, -560 )
+script = ExtResource( 5 )
+nav = NodePath("../Navigation2D")
+Enemy = ExtResource( 6 )
+Player = NodePath("../Player")
+EnemyContainer = NodePath("../Enemies")
+sprites = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+
+[node name="Timer" type="Timer" parent="Spawner3" index="0"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = false
+
+[node name="Enemies" type="Node2D" parent="." index="6"]
+
+[node name="GUI" type="CanvasLayer" parent="." index="7"]
+>>>>>>> parent of e8b45f4... spawners + wave
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -153,7 +235,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "PC Charge :"
 align = 1
 valign = 1
@@ -185,9 +267,14 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
+<<<<<<< HEAD
 texture_under = ExtResource( 6 )
 texture_over = null
 texture_progress = ExtResource( 14 )
+=======
+texture_under = ExtResource( 12 )
+texture_over = null
+>>>>>>> parent of e8b45f4... spawners + wave
 texture_progress = ExtResource( 13 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -200,8 +287,8 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -180.0
-margin_right = 170.0
+margin_left = -175.0
+margin_right = 175.0
 margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -209,7 +296,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Score :"
 align = 1
 valign = 1
@@ -218,30 +305,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Wave" type="Label" parent="GUI" index="2"]
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_enemy"]
 
-anchor_left = 0.5
-anchor_top = 0.0
-anchor_right = 0.5
-anchor_bottom = 0.0
-margin_left = 290.0
-margin_top = 10.0
-margin_right = 640.0
-margin_bottom = 69.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
-text = "Wave :"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+[connection signal="timeout" from="Spawner2/Timer" to="Spawner2" method="spawn_enemy"]
+
+[connection signal="timeout" from="Spawner3/Timer" to="Spawner3" method="spawn_enemy"]
 
 [node name="Spawner2" type="Node2D" parent="." index="9"]
 
