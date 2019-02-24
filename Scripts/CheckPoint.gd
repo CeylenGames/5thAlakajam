@@ -10,7 +10,7 @@ var bar_lvl
 var lvl_golds = 10
 
 func _ready():
-	power_on()
+	power_off()
 
 func power_on():
 	texture = ComputerOn
