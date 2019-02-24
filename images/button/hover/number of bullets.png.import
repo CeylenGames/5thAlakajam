@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cp button.png-caf4f656c486b229d949b3ef93f70dac.stex"
+path="res://.import/number of bullets.png-2b45ffc6bbd9cb2077ef6baca740051f.stex"
 
 [deps]
 
-source_file="res://images/button/cp button.png"
-dest_files=[ "res://.import/cp button.png-caf4f656c486b229d949b3ef93f70dac.stex" ]
+source_file="res://images/button/hover/number of bullets.png"
+dest_files=[ "res://.import/number of bullets.png-2b45ffc6bbd9cb2077ef6baca740051f.stex" ]
 
 [params]
 

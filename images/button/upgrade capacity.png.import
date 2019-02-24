@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cp button - Copie.png-72f846868a9a84928e850c930cdeb8d7.stex"
+path="res://.import/upgrade capacity.png-fd7d02bceb318cb1bda929230e658f29.stex"
 
 [deps]
 
-source_file="res://images/button/cp button - Copie.png"
-dest_files=[ "res://.import/cp button - Copie.png-72f846868a9a84928e850c930cdeb8d7.stex" ]
+source_file="res://images/button/upgrade capacity.png"
+dest_files=[ "res://.import/upgrade capacity.png-fd7d02bceb318cb1bda929230e658f29.stex" ]
 
 [params]
 

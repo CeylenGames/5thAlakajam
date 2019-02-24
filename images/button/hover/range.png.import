@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cp button - Copie (4).png-bd0b75484ef2755638c3b9e27efe4673.stex"
+path="res://.import/range.png-996625ec822fe823b26c31f79d0dbc63.stex"
 
 [deps]
 
-source_file="res://images/button/cp button - Copie (4).png"
-dest_files=[ "res://.import/cp button - Copie (4).png-bd0b75484ef2755638c3b9e27efe4673.stex" ]
+source_file="res://images/button/hover/range.png"
+dest_files=[ "res://.import/range.png-996625ec822fe823b26c31f79d0dbc63.stex" ]
 
 [params]
 
