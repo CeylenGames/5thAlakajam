@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://tile set/tile set2.res" type="TileSet" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=36]
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=37]
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=38]
+[ext_resource path="res://sounds/fight music.wav" type="AudioStream" id=39]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -105,6 +106,8 @@ spawners = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
 EnemyContainer = NodePath("Enemies")
 
 [node name="Navigation2D" type="Navigation2D" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
@@ -1168,6 +1171,15 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+
+[node name="music" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 39 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 
