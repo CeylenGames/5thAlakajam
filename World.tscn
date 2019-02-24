@@ -39,7 +39,10 @@
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=37]
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=38]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource path="res://sounds/fight music.wav" type="AudioStream" id=39]
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 =======
 >>>>>>> parent of 9de7e32... modifs améliorations
 
@@ -836,6 +839,7 @@ position = Vector2( -2650, 570 )
 texture = ExtResource( 16 )
 
 [node name="plateforme" type="Sprite" parent="." index="3"]
+<<<<<<< HEAD
 
 position = Vector2( 0, 90 )
 scale = Vector2( 0.268229, 0.268229 )
@@ -847,6 +851,19 @@ position = Vector2( 0, -10 )
 
 [node name="Player" parent="." index="5" instance=ExtResource( 21 )]
 
+=======
+
+position = Vector2( 0, 90 )
+scale = Vector2( 0.268229, 0.268229 )
+texture = ExtResource( 19 )
+
+[node name="CheckPoint" parent="." index="4" instance=ExtResource( 20 )]
+
+position = Vector2( 0, -10 )
+
+[node name="Player" parent="." index="5" instance=ExtResource( 21 )]
+
+>>>>>>> parent of 9de7e32... modifs améliorations
 editor/display_folded = true
 position = Vector2( 500, -200 )
 _sections_unfolded = [ "Transform" ]
@@ -1176,6 +1193,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="music" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 39 )
@@ -1196,6 +1214,8 @@ texture = ExtResource( 37 )
 position = Vector2( 0, -10 )
 
 
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 =======
 >>>>>>> parent of 9de7e32... modifs améliorations
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
