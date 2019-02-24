@@ -5,6 +5,7 @@ var Score = 0
 
 export (NodePath) var Enemies
 export (NodePath) var WaveLabel
+export (NodePath) var WaveButton
 
 export (Array) var spawners
 
@@ -14,6 +15,8 @@ var enemiesNb = 3 * WaveNumber
 var max_enemies = enemiesNb
 
 func _ready():
+	get_node(WaveButton).hide()
+	get_node(WaveButton).disabled = true
 	update_ui()
 	reset()
 
@@ -30,10 +33,12 @@ func _on_wave_ended():
 	enemiesNb = 3 * WaveNumber
 	max_enemies = enemiesNb
 	if WaveNumber % 1 == 0:
-		print("computer")
-		$ComputerTimer.start()
 		$CheckPoint.power_on()
-		yield($ComputerTimer, "timeout")
+		get_node(WaveButton).disabled = false
+		get_node(WaveButton).show()
+		yield(get_node(WaveButton), "pressed")
+		get_node(WaveButton).disabled = true
+		get_node(WaveButton).hide()
 		$CheckPoint.power_off()
 	update_ui()
 	reset()

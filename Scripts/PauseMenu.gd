@@ -9,4 +9,4 @@ func _on_Options_pressed():
 
 
 func _on_Resume_pressed():
-	pass # replace with function body
+	get_parent().get_parent().destroy_menu()

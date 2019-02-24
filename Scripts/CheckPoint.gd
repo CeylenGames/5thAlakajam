@@ -7,10 +7,10 @@ var player_here = false
 var powered = false
 
 var bar_lvl = 1
-var bar_golds = 10
+var lvl_golds = 10
 
 func _ready():
-	power_off()
+	power_on()
 
 func power_on():
 	texture = ComputerOn
@@ -33,10 +33,14 @@ func _process(delta):
 		show_ui()
 		
 func show_ui():
-	print("shop")
+	get_parent().get_node("GUI").show_shop()
 
-func buy_bar(max_progress, golds):
+func buy_bar():
 	bar_lvl += 1
-	golds -= bar_golds
-	bar_golds *= 2
-	max_progress += 10 * bar_lvl
+	get_parent().get_node("Player").coins -= lvl_golds
+	lvl_golds *= 2
+	get_parent().get_node("Player").charge_max += 10 * bar_lvl
+	get_node(get_parent().get_node("Player").ChargeBar).max_value = get_parent().get_node("Player").charge_max
+
+func recharge():
+	get_node(get_parent().get_node("Player").ChargeBar).value = get_parent().get_node("Player").charge_max

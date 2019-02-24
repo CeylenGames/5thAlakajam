@@ -20,6 +20,9 @@ func destroy_menu():
 	$TextureRect.hide()
 	menu.queue_free()
 	get_tree().paused = false
+	
+func show_shop():
+	show_menu(ShopMenu)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
