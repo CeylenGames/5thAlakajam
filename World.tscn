@@ -24,9 +24,9 @@
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 3000, -1800, 3000, 1800, -3010, 1800, -3010, -1820 )
+vertices = PoolVector2Array( 3000, -1800, 3000, 1800, -3000, 1800, -3000, -1800 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( -3010, -1820, -3010, 1800, 3000, 1800, 3000, -1800 ) ]
+outlines = [ PoolVector2Array( -3000, -1800, -3000, 1800, 3000, 1800, 3000, -1800 ) ]
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -79,8 +79,6 @@ spawners = [ NodePath("Spawner"), NodePath("Spawner2"), NodePath("Spawner3") ]
 EnemyContainer = NodePath("Enemies")
 
 [node name="Navigation2D" type="Navigation2D" parent="." index="0"]
-
-editor/display_folded = true
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
