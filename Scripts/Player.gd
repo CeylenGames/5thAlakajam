@@ -18,12 +18,13 @@ export (NodePath) var Coins
 var coins = 1000
 
 export (NodePath) var ChargeBar
-var charge_max = 800
+var charge_max = 100
 var charge = charge_max
 
-var charge_loose = 5
+var charge_loose = 10
 
 func _ready():
+	load_data()
 	randomize()
 
 func _process(delta):

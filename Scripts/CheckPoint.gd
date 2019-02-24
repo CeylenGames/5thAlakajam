@@ -36,11 +36,14 @@ func show_ui():
 	get_parent().get_node("GUI").show_shop()
 
 func buy_bar():
-	bar_lvl += 1
-	get_parent().get_node("Player").coins -= lvl_golds
-	lvl_golds *= 2
-	get_parent().get_node("Player").charge_max += 10 * bar_lvl
-	get_node(get_parent().get_node("Player").ChargeBar).max_value = get_parent().get_node("Player").charge_max
-
+	if get_parent().get_node("Player").coins >= lvl_golds:
+		bar_lvl += 1
+		get_parent().get_node("Player").coins -= lvl_golds
+		lvl_golds *= 2
+		get_parent().get_node("Player").charge_max += 10 * bar_lvl
+		get_node(get_parent().get_node("Player").ChargeBar).max_value = get_parent().get_node("Player").charge_max
+	
+	get_parent().get_node("Player").save_data()
 func recharge():
 	get_node(get_parent().get_node("Player").ChargeBar).value = get_parent().get_node("Player").charge_max
+	get_parent().get_node("Player").save_data()
