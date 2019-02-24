@@ -4,11 +4,11 @@
 [ext_resource path="res://images/perso/persos1.png" type="Texture" id=2]
 [ext_resource path="res://images/perso/persos2.png" type="Texture" id=3]
 [ext_resource path="res://images/perso/persob1.png" type="Texture" id=4]
-[ext_resource path="res://images/perso/persob2.png" type="Texture" id=5]
-[ext_resource path="res://images/perso/persob3.png" type="Texture" id=6]
-[ext_resource path="res://images/perso/persof1.png" type="Texture" id=7]
-[ext_resource path="res://images/perso/persof2.png" type="Texture" id=8]
-[ext_resource path="res://images/perso/persof3.png" type="Texture" id=9]
+[ext_resource path="res://images/perso/persof1.png" type="Texture" id=5]
+[ext_resource path="res://images/perso/persof2.png" type="Texture" id=6]
+[ext_resource path="res://images/perso/persof3.png" type="Texture" id=7]
+[ext_resource path="res://images/perso/persob2.png" type="Texture" id=8]
+[ext_resource path="res://images/perso/persob3.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -18,30 +18,30 @@ animations = [ {
 "name": "Side",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "SideIdle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Dos",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "DosIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "FaceIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Face",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Dos",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "SideIdle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -50,7 +50,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "Player",
 ]]
 

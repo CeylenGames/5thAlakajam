@@ -6,7 +6,7 @@ export (Texture) var ComputerOff
 var player_here = false
 var powered = false
 
-var bar_lvl = 1
+var bar_lvl
 var lvl_golds = 10
 
 func _ready():
@@ -38,8 +38,9 @@ func show_ui():
 func buy_bar():
 	if get_parent().get_node("Player").coins >= lvl_golds:
 		bar_lvl += 1
+		get_parent().get_node("Player").bar_lvl = bar_lvl
 		get_parent().get_node("Player").coins -= lvl_golds
-		lvl_golds *= 2
+		lvl_golds = bar_lvl * 10
 		get_parent().get_node("Player").charge_max += 10 * bar_lvl
 		get_node(get_parent().get_node("Player").ChargeBar).max_value = get_parent().get_node("Player").charge_max
 	

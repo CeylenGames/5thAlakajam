@@ -23,8 +23,11 @@ var charge = charge_max
 
 var charge_loose = 10
 
+var bar_lvl = 1
+
 func _ready():
 	load_data()
+	updateUi()
 	randomize()
 
 func _process(delta):
@@ -119,12 +122,15 @@ func coin_pick(body):
 func updateUi():
 	get_node(ChargeBar).value = charge
 	get_node(Coins).text = str(coins)
+	if charge == 0:
+		get_tree().change_scene("res://LooseMenu.tscn")
 
 func save_data():
 	var save_file = File.new()
 	save_file.open("res://save.txt", File.WRITE)
 	save_file.store_string(str(charge_max) + "\r\n")
-	save_file.store_string(str(coins))
+	save_file.store_string(str(coins) + "\r\n")
+	save_file.store_string(str(bar_lvl))
 	save_file.close()
 
 func load_data():
@@ -132,6 +138,8 @@ func load_data():
 	save_file.open("res://save.txt", File.READ)
 	charge_max = int(save_file.get_line())
 	coins = int(save_file.get_line())
+	bar_lvl = int(save_file.get_line())
+	print(bar_lvl)
 	
 func hit(damage):
 	charge -= damage
