@@ -15,10 +15,11 @@ var bodies = Array()
 var selected
 
 export (NodePath) var Coins
-var coins = 0
+var coins = 1000
 
 export (NodePath) var ChargeBar
-var charge = 100
+var charge_max = 800
+var charge = charge_max
 
 var charge_loose = 5
 
@@ -98,7 +99,7 @@ func _undetected(body):
 		selected = null
 
 func choose_a_guy():
-	if bodies.size() > 0:
+	if bodies.size() > 0 and not selected:
 		var node = bodies[rand_range(0, bodies.size())]
 		var sprite = Sprite.new()
 		sprite.name = "Selector"
@@ -117,3 +118,16 @@ func coin_pick(body):
 func updateUi():
 	get_node(ChargeBar).value = charge
 	get_node(Coins).text = str(coins)
+
+func save_data():
+	var save_file = File.new()
+	save_file.open("res://save.txt", File.WRITE)
+	save_file.store_string(str(charge_max) + "\r\n")
+	save_file.store_string(str(coins))
+	save_file.close()
+
+func load_data():
+	var save_file = File.new()
+	save_file.open("res://save.txt", File.READ)
+	charge_max = int(save_file.get_line())
+	coins = int(save_file.get_line())

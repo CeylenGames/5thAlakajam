@@ -1,7 +1,7 @@
 extends Area2D
 
 var velocity = Vector2()
-var Speed = 250
+var Speed = 400
 
 func _ready():
 	var angle = velocity.angle()

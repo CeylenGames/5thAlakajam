@@ -29,7 +29,8 @@ func _on_wave_ended():
 	WaveNumber += 1
 	enemiesNb = 3 * WaveNumber
 	max_enemies = enemiesNb
-	if WaveNumber % 3 == 0:
+	if WaveNumber % 1 == 0:
+		print("computer")
 		$ComputerTimer.start()
 		$CheckPoint.power_on()
 		yield($ComputerTimer, "timeout")

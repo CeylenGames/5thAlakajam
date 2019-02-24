@@ -6,6 +6,9 @@ export (Texture) var ComputerOff
 var player_here = false
 var powered = false
 
+var bar_lvl = 1
+var bar_golds = 10
+
 func _ready():
 	power_off()
 
@@ -31,3 +34,9 @@ func _process(delta):
 		
 func show_ui():
 	print("shop")
+
+func buy_bar(max_progress, golds):
+	bar_lvl += 1
+	golds -= bar_golds
+	bar_golds *= 2
+	max_progress += 10 * bar_lvl
