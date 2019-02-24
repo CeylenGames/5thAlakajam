@@ -7,11 +7,12 @@ export (NodePath) var EnemyContainer
 
 export (Array) var sprites
 
+export (float) var time_left
+
 var counter = 0
 var max_counter = 1
 
 func spawn_enemy():
-	print("spawn")
 	var enemy = Enemy.instance()
 	enemy.position = position
 	get_node(EnemyContainer).add_child(enemy)
@@ -21,8 +22,11 @@ func spawn_enemy():
 	counter += 1
 	if counter == max_counter:
 		$Timer.stop()
+	if counter == 1:
+		$Timer.wait_time = 3
 	
 func reset(waveNumber):
 	counter = 0
 	max_counter = waveNumber
+	$Timer.wait_time = time_left
 	$Timer.start()

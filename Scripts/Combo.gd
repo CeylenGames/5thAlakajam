@@ -1,7 +1,8 @@
-extends Node
+extends Sprite
 
 export (Texture) var Button0
 export (Texture) var Button1
+export (Texture) var ButtonEnter
 
 var combo = PoolIntArray()
 var index = 0
@@ -50,6 +51,14 @@ func get_events():
 			yield($AnimationPlayer, "animation_finished")
 			$AnimationPlayer.play("Idle")
 			animating = false
+	elif Input.is_action_just_pressed("ui_accept"):
+		$Exit_Timer.stop()
+		if combo[index] == 2:
+			$AnimationPlayer.play("Accept")
+			animating = true
+			yield($AnimationPlayer, "animation_finished")
+			change_index()
+			animating = false
 	else:
 		if not afk:
 			afk = true
@@ -62,9 +71,11 @@ func combo_exit():
 
 func update_ui():
 	if combo[index] == 0:
-		$TextureRect.texture = Button0
+		texture = Button0
+	elif combo[index] == 1:
+		texture = Button1
 	else:
-		$TextureRect.texture = Button1
+		texture = ButtonEnter
 
 func change_index():
 	index += 1
@@ -80,3 +91,4 @@ func create_Bytes(size):
 	while i < size:
 		combo.append(int(rand_range(0, 2)))
 		i += 1
+	combo.append(2)

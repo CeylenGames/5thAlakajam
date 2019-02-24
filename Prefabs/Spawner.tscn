@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=1]
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 nav = null
@@ -10,11 +10,12 @@ Enemy = null
 Player = null
 EnemyContainer = null
 sprites = null
+time_left = null
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 3.0
 one_shot = false
 autostart = false
 

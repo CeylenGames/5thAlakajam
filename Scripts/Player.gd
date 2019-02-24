@@ -13,7 +13,11 @@ export (Texture) var select_texture
 var bodies = Array()
 var selected
 
+export (NodePath) var Coins
 var coins = 0
+
+export (NodePath) var ChargeBar
+var charge = 100
 
 func _ready():
 	randomize()
@@ -52,21 +56,21 @@ func BeginCombo():
 	add_child(combo)
 	combo.position = Combo_Indic_Pos
 	combo.connect("combo_ended", self, "end_combo")
-	combo.begin(10)
+	combo.begin(3)
 
 func end_combo():
-	if selected:
+	if selected and charge >= 10:
 		var bullet = Bullet.instance()
 		bullet.position = get_node("../Player").position
 		bullet.velocity = (selected.position - position).normalized()
 		get_node("../../World").add_child(bullet)
+		
+		charge -= 10
+		updateUi()
 
 func _detected(body):
 	if body.is_in_group("Enemy"):
 		bodies.append(body)
-	elif body.is_in_group("Coin"):
-		coins += 1
-		body.queue_free()
 
 func _undetected(body):
 	if body.is_in_group("Enemy"):
@@ -83,3 +87,13 @@ func choose_a_guy():
 		node.add_child(sprite)
 		sprite.texture = select_texture
 		selected = node
+
+func coin_pick(body):
+	if body.is_in_group("Coin"):
+		coins += 1
+		body.get_parent().queue_free()
+		updateUi()
+
+func updateUi():
+	get_node(ChargeBar).value = charge
+	get_node(Coins).text = str(coins)

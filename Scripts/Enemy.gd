@@ -46,5 +46,6 @@ func set_sprite(texture):
 func leave_coin():
 	var coin = Coin.instance()
 	coin.position = position
-	get_node("../../../World").add_child(coin)
+	get_parent().get_parent().add_child(coin)
+	get_parent().get_parent().enemy_died()
 	queue_free()

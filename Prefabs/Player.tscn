@@ -35,7 +35,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -47,6 +47,8 @@ Combo_Indic = null
 Combo_Indic_Pos = null
 Bullet = null
 select_texture = null
+Coins = null
+ChargeBar = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
