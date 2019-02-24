@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/recharge.ogg-01131a521c8ba026c3e35476b4fabf87.oggstr"
+
+[deps]
+
+source_file="res://bruitages/0/recharge.ogg"
+dest_files=[ "res://.import/recharge.ogg-01131a521c8ba026c3e35476b4fabf87.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

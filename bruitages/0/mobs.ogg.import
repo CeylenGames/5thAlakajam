@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mobs.ogg-3d53a496148ce5f81cc9983373d3f268.oggstr"
+
+[deps]
+
+source_file="res://bruitages/0/mobs.ogg"
+dest_files=[ "res://.import/mobs.ogg-3d53a496148ce5f81cc9983373d3f268.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

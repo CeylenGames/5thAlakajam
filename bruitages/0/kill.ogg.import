@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kill.ogg-a4dd2891a97a82eac812f1ab0f49706b.oggstr"
+
+[deps]
+
+source_file="res://bruitages/0/kill.ogg"
+dest_files=[ "res://.import/kill.ogg-a4dd2891a97a82eac812f1ab0f49706b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
