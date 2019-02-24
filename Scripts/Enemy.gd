@@ -49,3 +49,8 @@ func leave_coin():
 	get_parent().get_parent().add_child(coin)
 	get_parent().get_parent().enemy_died()
 	queue_free()
+
+
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		body.hit(10)
