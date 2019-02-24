@@ -40,7 +40,10 @@
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=38]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource path="res://sounds/fight music.wav" type="AudioStream" id=39]
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 =======
 >>>>>>> parent of 9de7e32... modifs améliorations
 =======
@@ -840,6 +843,7 @@ texture = ExtResource( 16 )
 
 [node name="plateforme" type="Sprite" parent="." index="3"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 position = Vector2( 0, 90 )
 scale = Vector2( 0.268229, 0.268229 )
@@ -851,6 +855,19 @@ position = Vector2( 0, -10 )
 
 [node name="Player" parent="." index="5" instance=ExtResource( 21 )]
 
+=======
+
+position = Vector2( 0, 90 )
+scale = Vector2( 0.268229, 0.268229 )
+texture = ExtResource( 19 )
+
+[node name="CheckPoint" parent="." index="4" instance=ExtResource( 20 )]
+
+position = Vector2( 0, -10 )
+
+[node name="Player" parent="." index="5" instance=ExtResource( 21 )]
+
+>>>>>>> parent of 9de7e32... modifs améliorations
 =======
 
 position = Vector2( 0, 90 )
@@ -1194,6 +1211,7 @@ size_flags_vertical = 1
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="music" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 39 )
@@ -1214,6 +1232,8 @@ texture = ExtResource( 37 )
 position = Vector2( 0, -10 )
 
 
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 =======
 >>>>>>> parent of 9de7e32... modifs améliorations
 =======
