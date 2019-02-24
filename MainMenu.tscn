@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://images/main menu.png" type="Texture" id=2]
+[ext_resource path="res://images/button/mmplay.png" type="Texture" id=3]
+[ext_resource path="res://images/button/pressed/mmplay.png" type="Texture" id=4]
+[ext_resource path="res://images/button/hover/mmplay.png" type="Texture" id=5]
+[ext_resource path="res://images/button/mmoption.png" type="Texture" id=6]
+[ext_resource path="res://images/button/pressed/mmoption.png" type="Texture" id=7]
+[ext_resource path="res://images/button/hover/mmoption.png" type="Texture" id=8]
+[ext_resource path="res://images/button/mmquit.png" type="Texture" id=9]
+[ext_resource path="res://images/button/pressed/mmquit.png" type="Texture" id=10]
+[ext_resource path="res://images/button/hover/mmquit.png" type="Texture" id=11]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 12 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -28,14 +46,17 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
 
-[node name="TextureButton" type="TextureButton" parent="." index="1"]
+[node name="play" type="TextureButton" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 927.0
+margin_top = 645.0
+margin_right = 1098.0
+margin_bottom = 731.0
+rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -47,3 +68,88 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="play2" type="TextureButton" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1087.0
+margin_top = 648.0
+margin_right = 1320.0
+margin_bottom = 734.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 7 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="play3" type="TextureButton" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 637.0
+margin_right = 183.0
+margin_bottom = 731.0
+rect_scale = Vector2( 0.8, 0.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 943.0
+margin_top = 603.0
+margin_right = 1307.0
+margin_bottom = 640.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "press F to see the tutorial"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+
