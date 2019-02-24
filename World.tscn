@@ -38,7 +38,10 @@
 [ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=36]
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=37]
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=38]
+<<<<<<< HEAD
 [ext_resource path="res://sounds/fight music.wav" type="AudioStream" id=39]
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -61,7 +64,7 @@ extents = Vector2( 50, 100 )
 size = 20
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 33 )
+font_data = ExtResource( 35 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -69,7 +72,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 33 )
+font_data = ExtResource( 35 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=6]
@@ -77,7 +80,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 33 )
+font_data = ExtResource( 35 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=7]
@@ -85,7 +88,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 33 )
+font_data = ExtResource( 35 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=8]
@@ -93,7 +96,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 33 )
+font_data = ExtResource( 35 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="World" type="Node" index="0"]
@@ -832,13 +835,24 @@ texture = ExtResource( 14 )
 position = Vector2( -2650, 570 )
 texture = ExtResource( 16 )
 
-[node name="Player" parent="." index="3" instance=ExtResource( 19 )]
+[node name="plateforme" type="Sprite" parent="." index="3"]
 
+position = Vector2( 0, 90 )
+scale = Vector2( 0.268229, 0.268229 )
+texture = ExtResource( 19 )
+
+[node name="CheckPoint" parent="." index="4" instance=ExtResource( 20 )]
+
+position = Vector2( 0, -10 )
+
+[node name="Player" parent="." index="5" instance=ExtResource( 21 )]
+
+editor/display_folded = true
 position = Vector2( 500, -200 )
 _sections_unfolded = [ "Transform" ]
-Combo_Indic = ExtResource( 20 )
-Bullet = ExtResource( 21 )
-select_texture = ExtResource( 22 )
+Combo_Indic = ExtResource( 22 )
+Bullet = ExtResource( 23 )
+select_texture = ExtResource( 24 )
 Coins = NodePath("../GUI/Coins")
 ChargeBar = NodePath("../GUI/Charge/TextureProgress")
 
@@ -891,6 +905,7 @@ shape = SubResource( 2 )
 
 [node name="CoinPicker" type="Area2D" parent="Player" index="5"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -903,42 +918,42 @@ audio_bus_name = "Master"
 
 shape = SubResource( 3 )
 
-[node name="Enemies" type="Node2D" parent="." index="4"]
+[node name="Enemies" type="Node2D" parent="." index="6"]
 
-script = ExtResource( 23 )
+script = ExtResource( 25 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spawner" parent="." index="5" instance=ExtResource( 24 )]
+[node name="Spawner" parent="." index="7" instance=ExtResource( 26 )]
 
 position = Vector2( 1370, -1590 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 25 )
+Enemy = ExtResource( 27 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
+sprites = [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ]
 time_left = 1.0
 
-[node name="Spawner2" parent="." index="6" instance=ExtResource( 24 )]
+[node name="Spawner2" parent="." index="8" instance=ExtResource( 26 )]
 
 position = Vector2( -2210, 140 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 25 )
+Enemy = ExtResource( 27 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
+sprites = [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ]
 time_left = 2.0
 
-[node name="Spawner3" parent="." index="7" instance=ExtResource( 24 )]
+[node name="Spawner3" parent="." index="9" instance=ExtResource( 26 )]
 
 position = Vector2( 680, 1270 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 25 )
+Enemy = ExtResource( 27 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
+sprites = [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ]
 time_left = 3.0
 
-[node name="GUI" type="CanvasLayer" parent="." index="8"]
+[node name="GUI" type="CanvasLayer" parent="." index="10"]
 
 editor/display_folded = true
 layer = 1
@@ -946,9 +961,9 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 30 )
-PauseMenu = ExtResource( 31 )
-ShopMenu = ExtResource( 32 )
+script = ExtResource( 32 )
+PauseMenu = ExtResource( 33 )
+ShopMenu = ExtResource( 34 )
 
 [node name="Charge" type="Label" parent="GUI" index="0"]
 
@@ -997,9 +1012,9 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 34 )
+texture_under = ExtResource( 36 )
 texture_over = null
-texture_progress = ExtResource( 35 )
+texture_progress = ExtResource( 37 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -1094,7 +1109,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 36 )
+texture = ExtResource( 38 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -1139,7 +1154,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 34 )
+texture = ExtResource( 36 )
 stretch_mode = 2
 _sections_unfolded = [ "Visibility" ]
 
@@ -1160,6 +1175,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
+<<<<<<< HEAD
 [node name="music" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 39 )
@@ -1180,6 +1196,8 @@ texture = ExtResource( 37 )
 position = Vector2( 0, -10 )
 
 
+=======
+>>>>>>> parent of 9de7e32... modifs améliorations
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 
 [connection signal="body_exited" from="Player/Detector" to="Player" method="_undetected"]

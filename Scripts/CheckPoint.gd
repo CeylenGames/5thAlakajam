@@ -45,5 +45,5 @@ func buy_bar():
 	
 	get_parent().get_node("Player").save_data()
 func recharge():
-	get_node(get_parent().get_node("Player").ChargeBar).value = get_node(get_parent().get_node("Player").ChargeBar).max_value
+	get_node(get_parent().get_node("Player").ChargeBar).value = get_parent().get_node("Player").charge_max
 	get_parent().get_node("Player").save_data()
