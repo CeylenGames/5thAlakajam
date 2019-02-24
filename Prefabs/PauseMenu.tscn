@@ -1,27 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://images/pause menu.png" type="Texture" id=2]
-[ext_resource path="res://images/button/hover/resume.png" type="Texture" id=3]
-
-[sub_resource type="StyleBoxTexture" id=1]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 233, 68 )
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
+[ext_resource path="res://images/button/resume.png" type="Texture" id=3]
+[ext_resource path="res://images/button/pressed/resume.png" type="Texture" id=4]
+[ext_resource path="res://images/button/hover/resume.png" type="Texture" id=5]
+[ext_resource path="res://images/button/options.png" type="Texture" id=6]
+[ext_resource path="res://images/button/pressed/options.png" type="Texture" id=7]
+[ext_resource path="res://images/button/hover/options.png" type="Texture" id=8]
+[ext_resource path="res://images/button/quit.png" type="Texture" id=9]
+[ext_resource path="res://images/button/pressed/quit.png" type="Texture" id=10]
+[ext_resource path="res://images/button/hover/quit.png" type="Texture" id=11]
 
 [node name="PauseMenu" type="Node2D" index="0"]
 
@@ -35,16 +24,17 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Resume" type="Button" parent="." index="1"]
+[node name="Resume" type="TextureButton" parent="." index="1"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -110.0
-margin_top = -100.0
+margin_top = -90.0
 margin_right = 123.0
-margin_bottom = -32.0
+margin_bottom = -22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -52,15 +42,73 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/hover = SubResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-flat = false
-align = 1
-_sections_unfolded = [ "Textures", "custom_styles" ]
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Options" type="TextureButton" parent="." index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -120.0
+margin_top = -10.0
+margin_right = 140.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Quit" type="TextureButton" parent="." index="3"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -90.0
+margin_top = 110.0
+margin_right = 65.0
+margin_bottom = 191.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+_sections_unfolded = [ "Textures" ]
 
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
+
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
+
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 
 
