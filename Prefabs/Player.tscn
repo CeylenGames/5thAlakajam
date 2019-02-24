@@ -3,10 +3,10 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://images/perso/persos1.png" type="Texture" id=2]
 [ext_resource path="res://images/perso/persos2.png" type="Texture" id=3]
-[ext_resource path="res://images/perso/persof1.png" type="Texture" id=4]
-[ext_resource path="res://images/perso/persof2.png" type="Texture" id=5]
-[ext_resource path="res://images/perso/persof3.png" type="Texture" id=6]
-[ext_resource path="res://images/perso/persob1.png" type="Texture" id=7]
+[ext_resource path="res://images/perso/persob1.png" type="Texture" id=4]
+[ext_resource path="res://images/perso/persof1.png" type="Texture" id=5]
+[ext_resource path="res://images/perso/persof2.png" type="Texture" id=6]
+[ext_resource path="res://images/perso/persof3.png" type="Texture" id=7]
 [ext_resource path="res://images/perso/persob2.png" type="Texture" id=8]
 [ext_resource path="res://images/perso/persob3.png" type="Texture" id=9]
 
@@ -18,12 +18,27 @@ animations = [ {
 "name": "Side",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "SideIdle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "DosIdle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FaceIdle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Face",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Dos",
 "speed": 4.0
@@ -35,7 +50,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 
@@ -60,8 +75,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.0708442, 0 )
-scale = Vector2( 2.31314, 2.09302 )
+position = Vector2( 1.43051e-006, 0 )
+scale = Vector2( 3.07692, 2.09302 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

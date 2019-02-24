@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=17]
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=18]
 [ext_resource path="res://Prefabs/CheckPoint.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Prefabs/PauseEnemy.tscn" type="PackedScene" id=20]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -235,6 +236,7 @@ time_left = 3.0
 
 [node name="GUI" type="CanvasLayer" parent="." index="8"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -397,6 +399,8 @@ one_shot = false
 autostart = false
 
 [node name="CheckPoint" parent="." index="10" instance=ExtResource( 19 )]
+
+[node name="PauseMenu" parent="." index="11" instance=ExtResource( 20 )]
 
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 

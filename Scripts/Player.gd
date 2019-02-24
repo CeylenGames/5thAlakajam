@@ -36,20 +36,33 @@ func _process(delta):
 func get_events(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += Speed
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.play("Side")
+		if not $AnimatedSprite.animation in ["Face", "Dos"]:
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("Side")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= Speed
-		$AnimatedSprite.play("Side")
-		$AnimatedSprite.flip_h = true
+		if not $AnimatedSprite.animation in ["Face", "Dos"]:
+			$AnimatedSprite.play("Side")
+			$AnimatedSprite.flip_h = true
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= Speed
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.play("Dos")
+		if not $AnimatedSprite.animation in ["Face", "Side"]:
+			$AnimatedSprite.play("Dos")
+			$AnimatedSprite.flip_h = false
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += Speed
-		$AnimatedSprite.flip_h = false
-		$AnimatedSprite.play("Face")
+		if not $AnimatedSprite.animation in ["Dos", "Side"]:
+			$AnimatedSprite.play("Face")
+			$AnimatedSprite.flip_h = false
+	
+	if Input.is_action_just_released("ui_right"):
+		$AnimatedSprite.play("SideIdle")
+	if Input.is_action_just_released("ui_left"):
+		$AnimatedSprite.play("SideIdle")
+	if Input.is_action_just_released("ui_down"):
+		$AnimatedSprite.play("FaceIdle")
+	if Input.is_action_just_released("ui_up"):
+		$AnimatedSprite.play("DosIdle")
 	
 	if Input.is_action_just_pressed("select_enemy"):
 		choose_a_guy()
