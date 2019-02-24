@@ -1,26 +1,42 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
-[ext_resource path="res://tile set/obstacles.res" type="TileSet" id=3]
-[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Bullet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/locked.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/EnemyContainer.gd" type="Script" id=8]
-[ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=11]
-[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=12]
-[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=13]
-[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=14]
-[ext_resource path="res://Scripts/PauseEnemy.gd" type="Script" id=15]
-[ext_resource path="res://Prefabs/PauseMenu.tscn" type="PackedScene" id=16]
-[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=18]
-[ext_resource path="res://images/ui/bar.png" type="Texture" id=19]
-[ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=20]
-[ext_resource path="res://Prefabs/CheckPoint.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tile set/tile set2.res" type="TileSet" id=2]
+[ext_resource path="res://images/terrain2/rock5.png" type="Texture" id=3]
+[ext_resource path="res://images/terrain2/weed2.png" type="Texture" id=4]
+[ext_resource path="res://images/terrain2/weed4.png" type="Texture" id=5]
+[ext_resource path="res://images/terrain2/weed6.png" type="Texture" id=6]
+[ext_resource path="res://images/terrain2/weed3.png" type="Texture" id=7]
+[ext_resource path="res://images/terrain2/weed5.png" type="Texture" id=8]
+[ext_resource path="res://images/terrain2/weed.png" type="Texture" id=9]
+[ext_resource path="res://images/terrain2/weed7.png" type="Texture" id=10]
+[ext_resource path="res://images/terrain2/rock4.png" type="Texture" id=11]
+[ext_resource path="res://images/terrain2/rock6.png" type="Texture" id=12]
+[ext_resource path="res://images/terrain2/rock8.png" type="Texture" id=13]
+[ext_resource path="res://images/terrain2/rock9.png" type="Texture" id=14]
+[ext_resource path="res://images/terrain2/rock7.png" type="Texture" id=15]
+[ext_resource path="res://images/terrain2/rock.png" type="Texture" id=16]
+[ext_resource path="res://images/terrain2/rock2.png" type="Texture" id=17]
+[ext_resource path="res://images/terrain2/rock3.png" type="Texture" id=18]
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Prefabs/Bullet.tscn" type="PackedScene" id=21]
+[ext_resource path="res://images/locked.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/EnemyContainer.gd" type="Script" id=23]
+[ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=25]
+[ext_resource path="res://images/enemies/spam1.png" type="Texture" id=26]
+[ext_resource path="res://images/enemies/spam2.png" type="Texture" id=27]
+[ext_resource path="res://images/enemies/spam3.png" type="Texture" id=28]
+[ext_resource path="res://images/enemies/spam4.png" type="Texture" id=29]
+[ext_resource path="res://Scripts/PauseEnemy.gd" type="Script" id=30]
+[ext_resource path="res://Prefabs/PauseMenu.tscn" type="PackedScene" id=31]
+[ext_resource path="res://font/Raleway-Black.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=33]
+[ext_resource path="res://images/ui/bar.png" type="Texture" id=34]
+[ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=35]
+[ext_resource path="res://images/plateforme.png" type="Texture" id=36]
+[ext_resource path="res://Prefabs/CheckPoint.tscn" type="PackedScene" id=37]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -43,7 +59,7 @@ extents = Vector2( 50, 100 )
 size = 20
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 17 )
+font_data = ExtResource( 32 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -51,7 +67,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 17 )
+font_data = ExtResource( 32 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=6]
@@ -59,7 +75,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 17 )
+font_data = ExtResource( 32 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=7]
@@ -67,10 +83,10 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 17 )
+font_data = ExtResource( 32 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 Enemies = NodePath("GUI/Enemies")
@@ -85,7 +101,7 @@ EnemyContainer = NodePath("Enemies")
 navpoly = SubResource( 1 )
 enabled = true
 
-[node name="TileMap" type="TileMap" parent="." index="1"]
+[node name="TileMap2" type="TileMap" parent="." index="1"]
 
 mode = 0
 tile_set = ExtResource( 2 )
@@ -103,38 +119,714 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -1048606, 8, 0, -327690, 8, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, -1610612733, 0, -393216, 1610612740, 0, -393215, 8, 0, -393214, 0, 0, -393213, 0, 0, -393212, 8, 0, -393211, 8, 0, -393210, 8, 0, -393209, 1610612743, 0, -393208, 0, 0, -393207, 0, 0, -262154, 8, 0, -262153, 0, 0, -262152, 1610612739, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 8, 0, -327679, 8, 0, -327678, 0, 0, -327677, 0, 0, -327676, 8, 0, -327675, -1610612733, 0, -327674, 8, 0, -327673, 8, 0, -327672, 0, 0, -327671, 0, 0, -196618, 8, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, -1073741822, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 8, 0, -262143, -1610612729, 0, -262142, 0, 0, -262141, -1610612734, 0, -262140, 8, 0, -262139, 8, 0, -262138, 8, 0, -262137, 8, 0, -262136, 0, 0, -262135, 0, 0, -131082, -1610612729, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 8, 0, -196607, 1610612741, 0, -196606, 8, 0, -196605, 8, 0, -196604, 1610612743, 0, -196603, -1073741821, 0, -196602, 8, 0, -196601, -1610612731, 0, -196600, 3, 0, -196599, 0, 0, -65546, -1610612729, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, -1610612735, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, -1610612731, 0, -131071, 8, 0, -131070, -1073741819, 0, -131069, 1610612743, 0, -131068, 8, 0, -131067, 8, 0, -131066, 8, 0, -131065, 8, 0, -131064, 0, 0, -131063, 0, 0, -10, 5, 0, -9, 3, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 8, 0, -65535, 5, 0, -65534, 8, 0, -65533, 8, 0, -65532, 8, 0, -65531, 3, 0, -65530, 8, 0, -65529, 8, 0, -65528, 0, 0, -65527, 0, 0, 65526, 0, 0, 65527, 8, 0, 65528, 4, 0, 65529, 4, 0, 65530, 1610612743, 0, 65531, 4, 0, 65532, 8, 0, 65533, 8, 0, 65534, 1610612741, 0, 65535, 8, 0, 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, -1610612732, 0, 8, 8, 0, 9, 5, 0, 131062, 0, 0, 131063, 8, 0, 131064, 0, 0, 131065, 8, 0, 131066, 8, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 1610612741, 0, 65541, 8, 0, 65542, 8, 0, 65543, -1610612732, 0, 65544, 8, 0, 65545, 8, 0, 196598, 0, 0, 196599, 1610612743, 0, 196600, 0, 0, 196601, -1073741819, 0, 196602, 8, 0, 196603, 0, 0, 196604, 1, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, -1073741822, 0, 262134, 0, 0, 262135, 8, 0, 262136, 8, 0, 262137, 8, 0, 262138, 8, 0, 262139, -1073741817, 0, 262140, 8, 0, 262141, 8, 0, 262142, 5, 0, 262143, 8, 0, 196608, 8, 0, 196609, -1610612730, 0, 196610, 1610612742, 0, 196611, 8, 0, 196612, 0, 0, 196613, 1, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 327670, -1073741821, 0, 327671, -1073741817, 0, 327672, 1610612738, 0, 327673, 0, 0, 327674, 0, 0, 327675, 8, 0, 327676, 0, 0, 327677, 0, 0, 327678, -1610612734, 0, 327679, 8, 0, 262144, 8, 0, 262145, 6, 0, 262146, -1073741818, 0, 262147, 8, 0, 262148, 0, 0, 262149, -1073741823, 0, 262150, 0, 0, 262151, 3, 0, 262152, 0, 0, 262153, 0, 0, 393206, 0, 0, 393207, -1073741817, 0, 393208, 1610612741, 0, 393209, 8, 0, 393210, 8, 0, 393211, -1610612731, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 1610612743, 0, 327680, 1610612743, 0, 327681, 8, 0, 327682, 8, 0, 327683, -1610612731, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0 )
+tile_data = PoolIntArray( -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, -1073741824, 0, -327685, -1073741824, 0, -327684, -1073741824, 0, -327683, -1073741824, 0, -327682, -1073741824, 0, -327681, -1610612736, 0, -393216, -1610612736, 0, -393215, -1610612736, 0, -393214, -1610612736, 0, -393213, -1073741824, 0, -393212, -1610612736, 0, -393211, -1610612736, 0, -393210, -1610612736, 0, -393209, -1073741824, 0, -393208, -1073741824, 0, -393207, 0, 0, -262154, -1610612736, 0, -262153, -1610612736, 0, -262152, -1073741824, 0, -262151, -1073741824, 0, -262150, -1073741824, 0, -262149, 0, 0, -262148, -1073741824, 0, -262147, 0, 0, -262146, -1073741824, 0, -262145, -1073741824, 0, -327680, -1073741824, 0, -327679, -1610612736, 0, -327678, -1610612736, 0, -327677, -1610612736, 0, -327676, 0, 0, -327675, 0, 0, -327674, -1073741824, 0, -327673, 0, 0, -327672, -1073741824, 0, -327671, -1073741824, 0, -196618, -1610612736, 0, -196617, -1610612736, 0, -196616, -1073741824, 0, -196615, -1073741824, 0, -196614, -1073741824, 0, -196613, -1610612736, 0, -196612, -1610612736, 0, -196611, -1610612736, 0, -196610, -1610612736, 0, -196609, 1610612736, 0, -262144, 1610612736, 0, -262143, -1073741824, 0, -262142, -1073741824, 0, -262141, -1073741824, 0, -262140, -1073741824, 0, -262139, 0, 0, -262138, -1610612736, 0, -262137, -1073741824, 0, -262136, -1073741824, 0, -262135, -1073741824, 0, -131082, -1610612736, 0, -131081, -1610612736, 0, -131080, -1610612736, 0, -131079, -1610612736, 0, -131078, -1610612736, 0, -131077, -1610612736, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 1610612736, 0, -196608, 1610612736, 0, -196607, 1610612736, 0, -196606, 1610612736, 0, -196605, -1073741824, 0, -196604, 1610612736, 0, -196603, 1610612736, 0, -196602, -1610612736, 0, -196601, -1610612736, 0, -196600, -1610612736, 0, -196599, -1073741824, 0, -65546, -1610612736, 0, -65545, -1610612736, 0, -65544, -1610612736, 0, -65543, 0, 0, -65542, -1073741824, 0, -65541, 0, 0, -65540, 0, 0, -65539, -1610612736, 0, -65538, 0, 0, -65537, 1610612736, 0, -131072, -1073741824, 0, -131071, -1073741824, 0, -131070, 0, 0, -131069, 1610612736, 0, -131068, 1610612736, 0, -131067, 1610612736, 0, -131066, 0, 0, -131065, -1073741824, 0, -131064, -1610612736, 0, -131063, -1073741824, 0, -10, 1610612736, 0, -9, 1610612736, 0, -8, 1610612736, 0, -7, 1610612736, 0, -6, -1073741824, 0, -5, -1610612736, 0, -4, -1610612736, 0, -3, -1610612736, 0, -2, 1610612736, 0, -1, -1073741824, 0, -65536, 1610612736, 0, -65535, -1073741824, 0, -65534, 1610612736, 0, -65533, 1610612736, 0, -65532, 1610612736, 0, -65531, 1610612736, 0, -65530, 0, 0, -65529, -1073741824, 0, -65528, 1610612736, 0, -65527, 1610612736, 0, 65526, 1610612736, 0, 65527, -1073741824, 0, 65528, -1073741824, 0, 65529, 1610612736, 0, 65530, 1610612736, 0, 65531, 1610612736, 0, 65532, -1610612736, 0, 65533, -1610612736, 0, 65534, 0, 0, 65535, 1610612736, 0, 0, 1610612736, 0, 1, -1073741824, 0, 2, -1073741824, 0, 3, 1610612736, 0, 4, 0, 0, 5, 1610612736, 0, 6, 1610612736, 0, 7, 1610612736, 0, 8, -1610612736, 0, 9, -1073741824, 0, 131062, 1610612736, 0, 131063, -1073741824, 0, 131064, 1610612736, 0, 131065, 1610612736, 0, 131066, -1073741824, 0, 131067, 0, 0, 131068, -1610612736, 0, 131069, -1610612736, 0, 131070, -1610612736, 0, 131071, -1610612736, 0, 65536, 0, 0, 65537, -1073741824, 0, 65538, -1073741824, 0, 65539, -1073741824, 0, 65540, 0, 0, 65541, -1073741824, 0, 65542, 0, 0, 65543, -1073741824, 0, 65544, -1610612736, 0, 65545, -1073741824, 0, 196598, -1073741824, 0, 196599, 1610612736, 0, 196600, 1610612736, 0, 196601, -1073741824, 0, 196602, -1073741824, 0, 196603, -1073741824, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, -1073741824, 0, 131074, -1073741824, 0, 131075, 0, 0, 131076, 0, 0, 131077, -1073741824, 0, 131078, 0, 0, 131079, -1073741824, 0, 131080, -1610612736, 0, 131081, -1073741824, 0, 262134, 1610612736, 0, 262135, 1610612736, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, -1073741824, 0, 262140, 1610612736, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, -1073741824, 0, 196609, -1073741824, 0, 196610, 0, 0, 196611, -1610612736, 0, 196612, -1610612736, 0, 196613, -1610612736, 0, 196614, -1610612736, 0, 196615, -1610612736, 0, 196616, -1073741824, 0, 196617, -1073741824, 0, 327670, 1610612736, 0, 327671, 1610612736, 0, 327672, -1073741824, 0, 327673, 1610612736, 0, 327674, 1610612736, 0, 327675, 1610612736, 0, 327676, 1610612736, 0, 327677, 1610612736, 0, 327678, 1610612736, 0, 327679, 1610612736, 0, 262144, -1073741824, 0, 262145, -1073741824, 0, 262146, -1610612736, 0, 262147, -1610612736, 0, 262148, -1610612736, 0, 262149, -1610612736, 0, 262150, -1610612736, 0, 262151, -1610612736, 0, 262152, -1073741824, 0, 262153, -1073741824, 0, 393206, 0, 0, 393207, 1610612736, 0, 393208, 1610612736, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, -1610612736, 0, 393214, -1610612736, 0, 393215, -1610612736, 0, 327680, -1610612736, 0, 327681, -1610612736, 0, 327682, -1610612736, 0, 327683, -1610612736, 0, 327684, -1073741824, 0, 327685, -1073741824, 0, 327686, -1073741824, 0, 327687, -1073741824, 0, 327688, -1073741824, 0, 327689, 0, 0 )
 _sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="TileMap2" type="TileMap" parent="." index="2"]
+[node name="details" type="Node2D" parent="." index="2"]
 
-mode = 0
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 300, 300 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( -327690, 1610612738, 0, -327681, 1, 0, -393214, -1073741823, 0, -393207, -1073741822, 0, -262151, -1610612733, 0, -262150, -1073741820, 0, -327675, 1610612739, 0, -196615, -1610612732, 0, -196614, -1610612733, 0, -262141, -1610612735, 0, -131078, 1, 0, -196603, -1073741821, 0, -65537, -1073741824, 0, -2, 0, 0, -1, 2, 0, -65531, 3, 0, 65526, -1073741823, 0, 131065, 1610612736, 0, 131066, 1073741824, 0, 65536, -1073741820, 0, 131072, 4, 0, 131077, 1610612736, 0, 131081, 2, 0, 196613, 3, 0, 327672, 3, 0, 327674, 3, 0, 327676, 4, 0, 327678, -1073741820, 0, 262149, 0, 0, 393206, -1610612734, 0, 327684, 2, 0, 327689, 1610612737, 0 )
-_sections_unfolded = [ "Cell" ]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="Player" parent="." index="3" instance=ExtResource( 4 )]
+[node name="rock5" type="Sprite" parent="details" index="0"]
+
+position = Vector2( -590, -150 )
+texture = ExtResource( 3 )
+
+[node name="weed2" type="Sprite" parent="details" index="1"]
+
+position = Vector2( -600, 220 )
+texture = ExtResource( 4 )
+
+[node name="weed4" type="Sprite" parent="details" index="2"]
+
+position = Vector2( -2370, 1160 )
+texture = ExtResource( 5 )
+
+[node name="weed6" type="Sprite" parent="details" index="3"]
+
+position = Vector2( 1750, 1320 )
+texture = ExtResource( 6 )
+
+[node name="weed3" type="Sprite" parent="details" index="4"]
+
+position = Vector2( -2230, 220 )
+texture = ExtResource( 7 )
+
+[node name="weed5" type="Sprite" parent="details" index="5"]
+
+position = Vector2( -1240, -690 )
+texture = ExtResource( 4 )
+
+[node name="weed7" type="Sprite" parent="details" index="6"]
+
+position = Vector2( 1680, -540 )
+texture = ExtResource( 6 )
+
+[node name="weed8" type="Sprite" parent="details" index="7"]
+
+position = Vector2( -1760, 400 )
+texture = ExtResource( 8 )
+
+[node name="weed" type="Sprite" parent="details" index="8"]
+
+editor/display_folded = true
+position = Vector2( -1050, 1650 )
+texture = ExtResource( 9 )
+
+[node name="weed7" type="Sprite" parent="details/weed" index="0"]
+
+position = Vector2( 1750, -800 )
+texture = ExtResource( 10 )
+
+[node name="weed3" type="Sprite" parent="details/weed" index="1"]
+
+position = Vector2( 3380, -840 )
+texture = ExtResource( 7 )
+
+[node name="weed6" type="Sprite" parent="details/weed" index="2"]
+
+position = Vector2( 2090, -40 )
+texture = ExtResource( 6 )
+
+[node name="weed" type="Sprite" parent="details/weed" index="3"]
+
+position = Vector2( 1200, -150 )
+texture = ExtResource( 9 )
+
+[node name="weed8" type="Sprite" parent="details/weed" index="4"]
+
+position = Vector2( 710, -840 )
+texture = ExtResource( 6 )
+
+[node name="weed5" type="Sprite" parent="details/weed" index="5"]
+
+position = Vector2( -330, -800 )
+texture = ExtResource( 8 )
+
+[node name="weed9" type="Sprite" parent="details/weed" index="6"]
+
+position = Vector2( -1660, -1090 )
+texture = ExtResource( 6 )
+
+[node name="weed10" type="Sprite" parent="details/weed" index="7"]
+
+position = Vector2( -1790, -1860 )
+texture = ExtResource( 6 )
+
+[node name="weed11" type="Sprite" parent="details/weed" index="8"]
+
+position = Vector2( -610, -1890 )
+texture = ExtResource( 6 )
+
+[node name="weed2" type="Sprite" parent="details/weed" index="9"]
+
+position = Vector2( -1890, -2510 )
+texture = ExtResource( 4 )
+
+[node name="weed4" type="Sprite" parent="details/weed" index="10"]
+
+position = Vector2( -820, -2930 )
+texture = ExtResource( 4 )
+
+[node name="weed12" type="Sprite" parent="details/weed" index="11"]
+
+position = Vector2( -1070, -2050 )
+texture = ExtResource( 4 )
+
+[node name="weed13" type="Sprite" parent="details/weed" index="12"]
+
+position = Vector2( 1030, -2670 )
+texture = ExtResource( 4 )
+
+[node name="weed14" type="Sprite" parent="details/weed" index="13"]
+
+position = Vector2( 1820, -2340 )
+texture = ExtResource( 7 )
+
+[node name="weed15" type="Sprite" parent="details/weed" index="14"]
+
+position = Vector2( 760, -2480 )
+texture = ExtResource( 6 )
+
+[node name="weed16" type="Sprite" parent="details/weed" index="15"]
+
+position = Vector2( 240, -1780 )
+texture = ExtResource( 9 )
+
+[node name="weed17" type="Sprite" parent="details/weed" index="16"]
+
+position = Vector2( 140, -890 )
+texture = ExtResource( 8 )
+
+[node name="weed18" type="Sprite" parent="details/weed" index="17"]
+
+position = Vector2( -1370, -20 )
+texture = ExtResource( 5 )
+
+[node name="weed19" type="Sprite" parent="details/weed" index="18"]
+
+position = Vector2( 190, -440 )
+texture = ExtResource( 4 )
+
+[node name="weed20" type="Sprite" parent="details/weed" index="19"]
+
+position = Vector2( 1060, -3050 )
+texture = ExtResource( 5 )
+
+[node name="weed21" type="Sprite" parent="details/weed" index="20"]
+
+position = Vector2( -1490, -2890 )
+texture = ExtResource( 5 )
+
+[node name="weed22" type="Sprite" parent="details/weed" index="21"]
+
+position = Vector2( -540, -3190 )
+texture = ExtResource( 10 )
+
+[node name="weed23" type="Sprite" parent="details/weed" index="22"]
+
+position = Vector2( -430, -2760 )
+texture = ExtResource( 10 )
+
+[node name="weed24" type="Sprite" parent="details/weed" index="23"]
+
+position = Vector2( 2270, -3170 )
+texture = ExtResource( 10 )
+
+[node name="weed25" type="Sprite" parent="details/weed" index="24"]
+
+position = Vector2( 3660, -3150 )
+texture = ExtResource( 4 )
+
+[node name="weed26" type="Sprite" parent="details/weed" index="25"]
+
+position = Vector2( 380, -1890 )
+texture = ExtResource( 4 )
+
+[node name="weed27" type="Sprite" parent="details/weed" index="26"]
+
+position = Vector2( 3440, -1700 )
+texture = ExtResource( 4 )
+
+[node name="weed28" type="Sprite" parent="details/weed" index="27"]
+
+position = Vector2( 1250, -1280 )
+texture = ExtResource( 7 )
+
+[node name="weed29" type="Sprite" parent="details/weed" index="28"]
+
+position = Vector2( 1540, -1320 )
+texture = ExtResource( 6 )
+
+[node name="weed30" type="Sprite" parent="details/weed" index="29"]
+
+position = Vector2( 1820, -1700 )
+texture = ExtResource( 8 )
+
+[node name="weed9" type="Sprite" parent="details" index="9"]
+
+position = Vector2( -340, 1340 )
+texture = ExtResource( 10 )
+
+[node name="weed10" type="Sprite" parent="details" index="10"]
+
+position = Vector2( -2180, -820 )
+texture = ExtResource( 6 )
+
+[node name="weed11" type="Sprite" parent="details" index="11"]
+
+position = Vector2( -2940, 1660 )
+texture = ExtResource( 8 )
+
+[node name="weed12" type="Sprite" parent="details" index="12"]
+
+position = Vector2( 1940, 50 )
+texture = ExtResource( 9 )
+
+[node name="weed13" type="Sprite" parent="details" index="13"]
+
+position = Vector2( -980, -1230 )
+texture = ExtResource( 6 )
+
+[node name="weed14" type="Sprite" parent="details" index="14"]
+
+position = Vector2( -1110, -470 )
+texture = ExtResource( 8 )
+
+[node name="weed15" type="Sprite" parent="details" index="15"]
+
+position = Vector2( 230, -110 )
+texture = ExtResource( 4 )
+
+[node name="weed16" type="Sprite" parent="details" index="16"]
+
+position = Vector2( -90, 200 )
+texture = ExtResource( 6 )
+
+[node name="weed17" type="Sprite" parent="details" index="17"]
+
+position = Vector2( 1630, -1070 )
+texture = ExtResource( 8 )
+
+[node name="weed18" type="Sprite" parent="details" index="18"]
+
+position = Vector2( -2490, -1640 )
+texture = ExtResource( 4 )
+
+[node name="weed19" type="Sprite" parent="details" index="19"]
+
+position = Vector2( -2020, -750 )
+texture = ExtResource( 7 )
+
+[node name="weed20" type="Sprite" parent="details" index="20"]
+
+position = Vector2( 1230, -1260 )
+texture = ExtResource( 5 )
+
+[node name="weed21" type="Sprite" parent="details" index="21"]
+
+position = Vector2( -910, 280 )
+texture = ExtResource( 6 )
+
+[node name="weed22" type="Sprite" parent="details" index="22"]
+
+position = Vector2( -1630, 1300 )
+texture = ExtResource( 9 )
+
+[node name="weed23" type="Sprite" parent="details" index="23"]
+
+position = Vector2( -620, -870 )
+texture = ExtResource( 4 )
+
+[node name="weed24" type="Sprite" parent="details" index="24"]
+
+position = Vector2( -1490, -620 )
+texture = ExtResource( 4 )
+
+[node name="weed25" type="Sprite" parent="details" index="25"]
+
+position = Vector2( -890, 1580 )
+texture = ExtResource( 4 )
+
+[node name="weed26" type="Sprite" parent="details" index="26"]
+
+position = Vector2( -2240, 680 )
+texture = ExtResource( 4 )
+
+[node name="weed27" type="Sprite" parent="details" index="27"]
+
+position = Vector2( 1230, 1240 )
+texture = ExtResource( 4 )
+
+[node name="weed28" type="Sprite" parent="details" index="28"]
+
+position = Vector2( 170, 1010 )
+texture = ExtResource( 4 )
+
+[node name="weed29" type="Sprite" parent="details" index="29"]
+
+position = Vector2( 1630, -120 )
+texture = ExtResource( 4 )
+
+[node name="weed30" type="Sprite" parent="details" index="30"]
+
+position = Vector2( 460, 470 )
+texture = ExtResource( 4 )
+
+[node name="weed31" type="Sprite" parent="details" index="31"]
+
+position = Vector2( 1160, 370 )
+texture = ExtResource( 4 )
+
+[node name="weed32" type="Sprite" parent="details" index="32"]
+
+position = Vector2( -30, -500 )
+texture = ExtResource( 4 )
+
+[node name="weed33" type="Sprite" parent="details" index="33"]
+
+position = Vector2( -1100, -930 )
+texture = ExtResource( 4 )
+
+[node name="weed34" type="Sprite" parent="details" index="34"]
+
+position = Vector2( -500, -1590 )
+texture = ExtResource( 4 )
+
+[node name="weed35" type="Sprite" parent="details" index="35"]
+
+position = Vector2( -2920, -1720 )
+texture = ExtResource( 4 )
+
+[node name="weed36" type="Sprite" parent="details" index="36"]
+
+position = Vector2( -2720, -1670 )
+texture = ExtResource( 4 )
+
+[node name="weed37" type="Sprite" parent="details" index="37"]
+
+position = Vector2( 2760, -1720 )
+texture = ExtResource( 4 )
+
+[node name="weed38" type="Sprite" parent="details" index="38"]
+
+position = Vector2( 2170, -1020 )
+texture = ExtResource( 5 )
+
+[node name="weed39" type="Sprite" parent="details" index="39"]
+
+position = Vector2( 2700, -760 )
+texture = ExtResource( 6 )
+
+[node name="weed40" type="Sprite" parent="details" index="40"]
+
+position = Vector2( 990, 480 )
+texture = ExtResource( 7 )
+
+[node name="weed41" type="Sprite" parent="details" index="41"]
+
+position = Vector2( 290, -550 )
+texture = ExtResource( 6 )
+
+[node name="weed42" type="Sprite" parent="details" index="42"]
+
+position = Vector2( 500, -1180 )
+texture = ExtResource( 6 )
+
+[node name="weed43" type="Sprite" parent="details" index="43"]
+
+position = Vector2( -510, -1230 )
+texture = ExtResource( 6 )
+
+[node name="weed44" type="Sprite" parent="details" index="44"]
+
+position = Vector2( -2080, -1370 )
+texture = ExtResource( 8 )
+
+[node name="weed45" type="Sprite" parent="details" index="45"]
+
+position = Vector2( 500, -1660 )
+texture = ExtResource( 8 )
+
+[node name="weed46" type="Sprite" parent="details" index="46"]
+
+position = Vector2( -920, -1670 )
+texture = ExtResource( 8 )
+
+[node name="weed47" type="Sprite" parent="details" index="47"]
+
+position = Vector2( 40, 1650 )
+texture = ExtResource( 6 )
+
+[node name="weed48" type="Sprite" parent="details" index="48"]
+
+position = Vector2( -1230, 1200 )
+texture = ExtResource( 10 )
+
+[node name="weed49" type="Sprite" parent="details" index="49"]
+
+position = Vector2( -1990, 890 )
+texture = ExtResource( 6 )
+
+[node name="weed50" type="Sprite" parent="details" index="50"]
+
+position = Vector2( -2940, 1200 )
+texture = ExtResource( 6 )
+
+[node name="weed51" type="Sprite" parent="details" index="51"]
+
+position = Vector2( 2390, 1590 )
+texture = ExtResource( 6 )
+
+[node name="weed52" type="Sprite" parent="details" index="52"]
+
+position = Vector2( 2270, 1170 )
+texture = ExtResource( 4 )
+
+[node name="weed53" type="Sprite" parent="details" index="53"]
+
+position = Vector2( 1630, 920 )
+texture = ExtResource( 4 )
+
+[node name="weed54" type="Sprite" parent="details" index="54"]
+
+position = Vector2( 1190, 1140 )
+texture = ExtResource( 4 )
+
+[node name="weed55" type="Sprite" parent="details" index="55"]
+
+position = Vector2( 290, 1090 )
+texture = ExtResource( 4 )
+
+[node name="weed56" type="Sprite" parent="details" index="56"]
+
+position = Vector2( -200, 950 )
+texture = ExtResource( 4 )
+
+[node name="weed57" type="Sprite" parent="details" index="57"]
+
+position = Vector2( 1690, 1640 )
+texture = ExtResource( 4 )
+
+[node name="weed58" type="Sprite" parent="details" index="58"]
+
+position = Vector2( 530, 1550 )
+texture = ExtResource( 4 )
+
+[node name="weed59" type="Sprite" parent="details" index="59"]
+
+position = Vector2( 2520, 360 )
+texture = ExtResource( 4 )
+
+[node name="weed60" type="Sprite" parent="details" index="60"]
+
+position = Vector2( 1750, 290 )
+texture = ExtResource( 6 )
+
+[node name="weed61" type="Sprite" parent="details" index="61"]
+
+position = Vector2( 2420, -130 )
+texture = ExtResource( 6 )
+
+[node name="weed62" type="Sprite" parent="details" index="62"]
+
+position = Vector2( 2270, -1590 )
+texture = ExtResource( 6 )
+
+[node name="weed63" type="Sprite" parent="details" index="63"]
+
+position = Vector2( 2810, -1190 )
+texture = ExtResource( 6 )
+
+[node name="weed64" type="Sprite" parent="details" index="64"]
+
+position = Vector2( 2200, 1190 )
+texture = ExtResource( 9 )
+
+[node name="weed65" type="Sprite" parent="details" index="65"]
+
+position = Vector2( 1750, -260 )
+texture = ExtResource( 10 )
+
+[node name="weed66" type="Sprite" parent="details" index="66"]
+
+position = Vector2( -460, 40 )
+texture = ExtResource( 6 )
+
+[node name="weed67" type="Sprite" parent="details" index="67"]
+
+position = Vector2( 1060, -360 )
+texture = ExtResource( 6 )
+
+[node name="weed68" type="Sprite" parent="details" index="68"]
+
+position = Vector2( 1140, -940 )
+texture = ExtResource( 6 )
+
+[node name="weed69" type="Sprite" parent="details" index="69"]
+
+position = Vector2( 1140, 1060 )
+texture = ExtResource( 6 )
+
+[node name="weed70" type="Sprite" parent="details" index="70"]
+
+position = Vector2( 410, 1160 )
+texture = ExtResource( 6 )
+
+[node name="weed71" type="Sprite" parent="details" index="71"]
+
+position = Vector2( 2810, 770 )
+texture = ExtResource( 6 )
+
+[node name="weed72" type="Sprite" parent="details" index="72"]
+
+position = Vector2( 2820, 1640 )
+texture = ExtResource( 7 )
+
+[node name="weed73" type="Sprite" parent="details" index="73"]
+
+position = Vector2( 2790, 1310 )
+texture = ExtResource( 6 )
+
+[node name="weed74" type="Sprite" parent="details" index="74"]
+
+position = Vector2( 2390, 340 )
+texture = ExtResource( 9 )
+
+[node name="weed75" type="Sprite" parent="details" index="75"]
+
+position = Vector2( 70, 1280 )
+texture = ExtResource( 9 )
+
+[node name="weed76" type="Sprite" parent="details" index="76"]
+
+position = Vector2( -1850, -640 )
+texture = ExtResource( 9 )
+
+[node name="weed77" type="Sprite" parent="details" index="77"]
+
+position = Vector2( 420, -1370 )
+texture = ExtResource( 9 )
+
+[node name="weed78" type="Sprite" parent="details" index="78"]
+
+position = Vector2( -2830, -1460 )
+texture = ExtResource( 9 )
+
+[node name="weed79" type="Sprite" parent="details" index="79"]
+
+position = Vector2( -2830, 1380 )
+texture = ExtResource( 9 )
+
+[node name="weed80" type="Sprite" parent="details" index="80"]
+
+position = Vector2( 2360, -1380 )
+texture = ExtResource( 9 )
+
+[node name="weed81" type="Sprite" parent="details" index="81"]
+
+position = Vector2( 450, -900 )
+texture = ExtResource( 9 )
+
+[node name="weed82" type="Sprite" parent="details" index="82"]
+
+position = Vector2( 2820, 520 )
+texture = ExtResource( 9 )
+
+[node name="rock6" type="Sprite" parent="details" index="83"]
+
+position = Vector2( -1920, 1410 )
+texture = ExtResource( 3 )
+
+[node name="rock4" type="Sprite" parent="details" index="84"]
+
+position = Vector2( -2480, 930 )
+texture = ExtResource( 11 )
+
+[node name="rock7" type="Sprite" parent="details" index="85"]
+
+position = Vector2( -1160, -800 )
+texture = ExtResource( 12 )
+
+[node name="rock8" type="Sprite" parent="details" index="86"]
+
+position = Vector2( -320, -520 )
+texture = ExtResource( 13 )
+
+[node name="rock9" type="Sprite" parent="details" index="87"]
+
+position = Vector2( 1940, -800 )
+texture = ExtResource( 14 )
+
+[node name="rock10" type="Sprite" parent="details" index="88"]
+
+position = Vector2( 1650, -1460 )
+texture = ExtResource( 15 )
+
+[node name="rock" type="Sprite" parent="details" index="89"]
+
+position = Vector2( -230, 410 )
+texture = ExtResource( 16 )
+
+[node name="rock11" type="Sprite" parent="details" index="90"]
+
+position = Vector2( -2670, -640 )
+texture = ExtResource( 12 )
+
+[node name="rock2" type="Sprite" parent="details" index="91"]
+
+position = Vector2( -2800, -1360 )
+texture = ExtResource( 17 )
+
+[node name="rock3" type="Sprite" parent="details" index="92"]
+
+position = Vector2( -1490, -1230 )
+texture = ExtResource( 18 )
+
+[node name="rock12" type="Sprite" parent="details" index="93"]
+
+position = Vector2( -2740, 1600 )
+texture = ExtResource( 11 )
+
+[node name="rock13" type="Sprite" parent="details" index="94"]
+
+position = Vector2( -860, 1580 )
+texture = ExtResource( 3 )
+
+[node name="rock14" type="Sprite" parent="details" index="95"]
+
+position = Vector2( 1840, 880 )
+texture = ExtResource( 12 )
+
+[node name="rock15" type="Sprite" parent="details" index="96"]
+
+position = Vector2( 1660, 620 )
+texture = ExtResource( 15 )
+
+[node name="rock16" type="Sprite" parent="details" index="97"]
+
+position = Vector2( 2260, -550 )
+texture = ExtResource( 13 )
+
+[node name="rock17" type="Sprite" parent="details" index="98"]
+
+position = Vector2( -230, -1640 )
+texture = ExtResource( 14 )
+
+[node name="rock18" type="Sprite" parent="details" index="99"]
+
+position = Vector2( -1820, 350 )
+texture = ExtResource( 16 )
+
+[node name="rock19" type="Sprite" parent="details" index="100"]
+
+position = Vector2( 200, 840 )
+texture = ExtResource( 11 )
+
+[node name="rock20" type="Sprite" parent="details" index="101"]
+
+position = Vector2( 570, 1180 )
+texture = ExtResource( 3 )
+
+[node name="rock21" type="Sprite" parent="details" index="102"]
+
+position = Vector2( -1650, 1590 )
+texture = ExtResource( 15 )
+
+[node name="rock22" type="Sprite" parent="details" index="103"]
+
+position = Vector2( -2590, -610 )
+texture = ExtResource( 14 )
+
+[node name="rock23" type="Sprite" parent="details" index="104"]
+
+position = Vector2( -1070, -1540 )
+texture = ExtResource( 13 )
+
+[node name="rock24" type="Sprite" parent="details" index="105"]
+
+position = Vector2( -1940, -1710 )
+texture = ExtResource( 14 )
+
+[node name="rock25" type="Sprite" parent="details" index="106"]
+
+position = Vector2( -2650, 570 )
+texture = ExtResource( 16 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 19 )]
 
 editor/display_folded = true
 position = Vector2( 500, -200 )
 _sections_unfolded = [ "Transform" ]
-Combo_Indic = ExtResource( 5 )
-Bullet = ExtResource( 6 )
-select_texture = ExtResource( 7 )
+Combo_Indic = ExtResource( 20 )
+Bullet = ExtResource( 21 )
+select_texture = ExtResource( 22 )
 Coins = NodePath("../GUI/Coins")
 ChargeBar = NodePath("../GUI/Charge/TextureProgress")
 
@@ -202,48 +894,49 @@ shape = SubResource( 3 )
 
 [node name="Enemies" type="Node2D" parent="." index="4"]
 
-script = ExtResource( 8 )
+script = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Spawner" parent="." index="5" instance=ExtResource( 9 )]
+[node name="Spawner" parent="." index="5" instance=ExtResource( 24 )]
 
 position = Vector2( 1370, -1590 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 10 )
+Enemy = ExtResource( 25 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
 time_left = 1.0
 
-[node name="Spawner2" parent="." index="6" instance=ExtResource( 9 )]
+[node name="Spawner2" parent="." index="6" instance=ExtResource( 24 )]
 
 position = Vector2( -2210, 140 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 10 )
+Enemy = ExtResource( 25 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
 time_left = 2.0
 
-[node name="Spawner3" parent="." index="7" instance=ExtResource( 9 )]
+[node name="Spawner3" parent="." index="7" instance=ExtResource( 24 )]
 
 position = Vector2( 680, 1270 )
 nav = NodePath("../Navigation2D")
-Enemy = ExtResource( 10 )
+Enemy = ExtResource( 25 )
 Player = NodePath("../Player")
 EnemyContainer = NodePath("../Enemies")
-sprites = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+sprites = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ]
 time_left = 3.0
 
 [node name="GUI" type="CanvasLayer" parent="." index="8"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 15 )
-PauseMenu = ExtResource( 16 )
+script = ExtResource( 30 )
+PauseMenu = ExtResource( 31 )
 ShopMenu = null
 
 [node name="Charge" type="Label" parent="GUI" index="0"]
@@ -293,9 +986,9 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 18 )
+texture_under = ExtResource( 33 )
 texture_over = null
-texture_progress = ExtResource( 19 )
+texture_progress = ExtResource( 34 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -391,7 +1084,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 20 )
+texture = ExtResource( 35 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -408,7 +1101,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 18 )
+texture = ExtResource( 33 )
 stretch_mode = 2
 _sections_unfolded = [ "Visibility" ]
 
@@ -429,7 +1122,15 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="CheckPoint" parent="." index="9" instance=ExtResource( 21 )]
+[node name="plateforme" type="Sprite" parent="." index="9"]
+
+position = Vector2( 0, 90 )
+scale = Vector2( 0.268229, 0.268229 )
+texture = ExtResource( 36 )
+
+[node name="CheckPoint" parent="." index="10" instance=ExtResource( 37 )]
+
+position = Vector2( 0, -10 )
 
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 
