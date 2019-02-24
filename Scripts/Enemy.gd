@@ -11,6 +11,8 @@ var index = 0
 var vector = Vector2()
 var Speed = 200
 
+var player_here
+
 export (PackedScene) var Coin
 
 func _physics_process(delta):
@@ -49,3 +51,17 @@ func leave_coin():
 	get_parent().get_parent().add_child(coin)
 	get_parent().get_parent().enemy_died()
 	queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("Player"):
+		player_here = true
+
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("Player"):
+		player_here = false
+
+func _on_Timer_timeout():
+	if player_here:
+		player.hit(10)

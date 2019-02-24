@@ -132,3 +132,9 @@ func load_data():
 	save_file.open("res://save.txt", File.READ)
 	charge_max = int(save_file.get_line())
 	coins = int(save_file.get_line())
+	
+func hit(damage):
+	charge -= damage
+	if charge < 0:
+		charge = 0
+	updateUi()

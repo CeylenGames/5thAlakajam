@@ -20,6 +20,7 @@ func destroy_menu():
 	$TextureRect.hide()
 	menu.queue_free()
 	get_tree().paused = false
+	get_node("../Player").updateUi()
 	
 func show_shop():
 	show_menu(ShopMenu)
