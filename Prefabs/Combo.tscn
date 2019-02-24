@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://images/0.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Combo.gd" type="Script" id=2]
 [ext_resource path="res://images/1.png" type="Texture" id=3]
+[ext_resource path="res://images/enter.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -23,7 +24,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 1, 0.254902, 1 ), Color( 0, 1, 0.254902, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 resource_name = "End"
 length = 0.5
@@ -61,9 +62,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource_name = "Reject"
 length = 0.24
 loop = false
 step = 0.03
@@ -74,7 +74,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.24 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ) ]
@@ -89,18 +89,19 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 35, 30 ), Vector2( 15, 30 ), Vector2( 35, 30 ), Vector2( 55, 30 ), Vector2( 35, 30 ), Vector2( 15, 30 ), Vector2( 35, 30 ), Vector2( 55, 30 ), Vector2( 35, 30 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -20, 0 ), Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( 0, 0 ), Vector2( -20, 0 ), Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( 0, 0 ) ]
 }
 
 [node name="Combo" type="Sprite" index="0"]
 
-position = Vector2( 35, 30 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 62, 47, 287, 317 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 Button0 = ExtResource( 1 )
 Button1 = ExtResource( 3 )
+ButtonEnter = ExtResource( 4 )
 
 [node name="Exit_Timer" type="Timer" parent="." index="0"]
 
@@ -117,9 +118,9 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Accept = SubResource( 1 )
-anims/End = SubResource( 4 )
+anims/End = SubResource( 2 )
 anims/Idle = SubResource( 3 )
-anims/Reject = SubResource( 2 )
+anims/Reject = SubResource( 4 )
 blend_times = [  ]
 
 [connection signal="timeout" from="Exit_Timer" to="." method="combo_exit"]

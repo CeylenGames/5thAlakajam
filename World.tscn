@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://tile set/tile set.res" type="TileSet" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Combo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Bullet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/enemies/select.png" type="Texture" id=7]
+[ext_resource path="res://images/locked.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/EnemyContainer.gd" type="Script" id=8]
 [ext_resource path="res://Prefabs/Spawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=10]
@@ -18,6 +18,7 @@
 [ext_resource path="res://images/ui/fond_bar.png" type="Texture" id=16]
 [ext_resource path="res://images/ui/bar.png" type="Texture" id=17]
 [ext_resource path="res://images/bitcoin/bitcoin1.png" type="Texture" id=18]
+[ext_resource path="res://Prefabs/CheckPoint.tscn" type="PackedScene" id=19]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -77,6 +78,8 @@ EnemyContainer = NodePath("Enemies")
 
 [node name="Navigation2D" type="Navigation2D" parent="." index="0"]
 
+editor/display_folded = true
+
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
 navpoly = SubResource( 1 )
@@ -128,7 +131,6 @@ _sections_unfolded = [ "Cell" ]
 
 editor/display_folded = true
 Combo_Indic = ExtResource( 5 )
-Combo_Indic_Pos = Vector2( -20, -130 )
 Bullet = ExtResource( 6 )
 select_texture = ExtResource( 7 )
 Coins = NodePath("../GUI/Coins")
@@ -159,8 +161,15 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="Detector" type="Area2D" parent="Player" index="3"]
+[node name="ComboReceptor" type="Node2D" parent="Player" index="3"]
 
+position = Vector2( 0, -120 )
+scale = Vector2( 1, 0.9375 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Detector" type="Area2D" parent="Player" index="4"]
+
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -174,8 +183,9 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[node name="CoinPicker" type="Area2D" parent="Player" index="4"]
+[node name="CoinPicker" type="Area2D" parent="Player" index="5"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -191,6 +201,7 @@ shape = SubResource( 3 )
 [node name="Enemies" type="Node2D" parent="." index="4"]
 
 script = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Spawner" parent="." index="5" instance=ExtResource( 9 )]
 
@@ -377,6 +388,15 @@ size_flags_vertical = 1
 texture = ExtResource( 18 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
+
+[node name="ComputerTimer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = false
+autostart = false
+
+[node name="CheckPoint" parent="." index="10" instance=ExtResource( 19 )]
 
 [connection signal="body_entered" from="Player/Detector" to="Player" method="_detected"]
 

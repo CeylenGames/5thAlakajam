@@ -5,7 +5,8 @@ export (float) var Speed = 300
 var velocity = Vector2()
 
 export (PackedScene) var Combo_Indic
-export (Vector2) var Combo_Indic_Pos
+
+var is_comboting = false
 
 export (PackedScene) var Bullet
 export (Texture) var select_texture
@@ -18,6 +19,8 @@ var coins = 0
 
 export (NodePath) var ChargeBar
 var charge = 100
+
+var charge_loose = 5
 
 func _ready():
 	randomize()
@@ -52,21 +55,23 @@ func get_events(delta):
 		choose_a_guy()
 		
 func BeginCombo():
-	var combo = Combo_Indic.instance()
-	add_child(combo)
-	combo.position = Combo_Indic_Pos
-	combo.connect("combo_ended", self, "end_combo")
-	combo.begin(3)
+	if not is_comboting:
+		var combo = Combo_Indic.instance()
+		$ComboReceptor.add_child(combo)
+		combo.connect("combo_ended", self, "end_combo")
+		combo.begin(3)
+		is_comboting = true
 
 func end_combo():
-	if selected and charge >= 10:
+	if selected and charge >= charge_loose:
 		var bullet = Bullet.instance()
 		bullet.position = get_node("../Player").position
 		bullet.velocity = (selected.position - position).normalized()
 		get_node("../../World").add_child(bullet)
 		
-		charge -= 10
+		charge -= charge_loose
 		updateUi()
+	is_comboting = false
 
 func _detected(body):
 	if body.is_in_group("Enemy"):
@@ -84,6 +89,8 @@ func choose_a_guy():
 		var node = bodies[rand_range(0, bodies.size())]
 		var sprite = Sprite.new()
 		sprite.name = "Selector"
+		sprite.apply_scale(Vector2(0.15, 0.15))
+		sprite.position = Vector2(0, -80)
 		node.add_child(sprite)
 		sprite.texture = select_texture
 		selected = node

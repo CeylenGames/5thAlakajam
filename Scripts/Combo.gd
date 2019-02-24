@@ -54,11 +54,19 @@ func get_events():
 	elif Input.is_action_just_pressed("ui_accept"):
 		$Exit_Timer.stop()
 		if combo[index] == 2:
-			$AnimationPlayer.play("Accept")
-			animating = true
-			yield($AnimationPlayer, "animation_finished")
-			change_index()
-			animating = false
+			if get_node("../../../Player").selected:
+				$AnimationPlayer.play("Accept")
+				animating = true
+				yield($AnimationPlayer, "animation_finished")
+				change_index()
+				animating = false
+			else:
+				$AnimationPlayer.play("Reject")
+				animating = true
+				yield($AnimationPlayer, "animation_finished")
+				$AnimationPlayer.play("Idle")
+				animating = false
+			
 	else:
 		if not afk:
 			afk = true
@@ -67,6 +75,7 @@ func get_events():
 func combo_exit():
 	$AnimationPlayer.play("End")
 	yield($AnimationPlayer, "animation_finished")
+	get_node("../../../Player").is_comboting = false
 	queue_free()
 
 func update_ui():

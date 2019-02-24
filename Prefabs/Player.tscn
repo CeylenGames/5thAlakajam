@@ -35,7 +35,9 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 60.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0" groups=[
+"Player",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -44,7 +46,6 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 Speed = 300
 Combo_Indic = null
-Combo_Indic_Pos = null
 Bullet = null
 select_texture = null
 Coins = null

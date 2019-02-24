@@ -11,13 +11,14 @@ export (Array) var spawners
 export (NodePath) var EnemyContainer
 
 var enemiesNb = 3 * WaveNumber
+var max_enemies = enemiesNb
 
 func _ready():
 	update_ui()
 	reset()
 
 func update_ui():
-	get_node(Enemies).set_text(str(enemiesNb) + " enemies remaining")
+	get_node(Enemies).set_text(str(enemiesNb) + "/" + str(max_enemies) + " enemies")
 	get_node(WaveLabel).set_text("Wave : " + str(WaveNumber))
 
 func reset():
@@ -27,6 +28,12 @@ func reset():
 func _on_wave_ended():
 	WaveNumber += 1
 	enemiesNb = 3 * WaveNumber
+	max_enemies = enemiesNb
+	if WaveNumber % 3 == 0:
+		$ComputerTimer.start()
+		$CheckPoint.power_on()
+		yield($ComputerTimer, "timeout")
+		$CheckPoint.power_off()
 	update_ui()
 	reset()
 
